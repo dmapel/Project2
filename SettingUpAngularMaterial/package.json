@@ -1,0 +1,11 @@
+{
+  "name": "settingupangularmaterial",
+  "version": "1.0.0",
+  "description": "Testing out angular material",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "j.onwuzulike",
+  "license": "ISC"
+}

@@ -1,0 +1,10 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
