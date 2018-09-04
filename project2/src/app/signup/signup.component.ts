@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  img = "assets/pics/revature-logo-600x219.png"
 
   constructor() { }
 

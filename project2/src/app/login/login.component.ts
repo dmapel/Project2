@@ -7,18 +7,12 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  img = "assets/pics/revature-logo-600x219.png"
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  email = new FormControl('', [Validators.required, Validators.email]);
-
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
-            '';
-  }
 
 }

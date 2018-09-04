@@ -1,8 +1,16 @@
+<div class="background">
+<img src= "{{img}}" id = "size">
 <div class="example-container">
   <mat-form-field>
-    <input matInput placeholder="Enter your email" [formControl]="email" required>
-    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-    <input matInput placeholder="Enter your password" [formControl]="password" required>
-    <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+    <input matInput placeholder="Enter your email">
   </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Enter your password">
+  </mat-form-field>
+<div class="button-row">
+  <button mat-raised-button color="warn">Login</button>
+</div>
+<label>New user? Sign-up <a routerLink = "/signup">here</a>!</label>
+</div>
 </div>
