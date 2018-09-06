@@ -2,19 +2,15 @@
 <img src= "{{img}}" id = "size">
 <div class="example-container">
   <mat-form-field>
-    <input matInput placeholder="Enter your email">
+    <input [(ngModel)] = 'email' matInput placeholder="Enter your email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Enter your password">
+    <input [(ngModel)] = 'password' matInput placeholder="Enter your password" type="password">
   </mat-form-field>
 <div class="button-row">
-  <button mat-raised-button color="warn">Login</button>
+  <button mat-raised-button color="warn" (click) = "login()">Login</button>
 </div>
 <label>New user? Sign-up <a routerLink = "/signup">here</a>!</label>
-
-<!--Trying to incorporate Cognito.-->
-<p>Cognito</p>
-<a href="https://revaturetech.auth.us-east-2.amazoncognito.com/login?response_type=token&client_id=4ptb0da4skq58fmigvjp65o1k&redirect_uri=https:/www./revaturetech.com">Click Here</a>
 </div>
 </div>
