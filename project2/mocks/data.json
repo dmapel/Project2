@@ -1,0 +1,19 @@
+{
+    "users": [
+        {
+            "u_id":1,
+            "firstName":"Wezley",
+            "lastName":"Singleton",
+            "email":"wezleysingleton@reva.com",
+            "pos_id":1
+        },
+        {
+            "u_id":2,
+            "firstName":"Dylan",
+            "lastName":"McBee",
+            "email":"dylanmcbee@reva.com",
+            "password":"db",
+            "pos_id":1
+        }
+    ]
+}
