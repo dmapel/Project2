@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { CognitoUserPool, CognitoUserAttribute, CognitoUser } from 'amazon-cognito-identity-js';
 import * as AWSCognito from 'amazon-cognito-identity-js';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class CognitoService {
   private userPool: AWSCognito.CognitoUserPool;
+  private router: Router;
   constructor() { 
     //Revature Pool and Clent Ids.
     const poolData = {

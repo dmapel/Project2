@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -51,6 +52,7 @@ import {
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +78,8 @@ import { FormsModule } from '@angular/forms';
     MatOptionModule,
     MatSelectModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule
 
   ],
   providers: [],
