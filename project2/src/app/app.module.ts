@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -50,6 +49,8 @@ import {
   MatFormFieldModule,
   MatOptionModule
 } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,15 +66,18 @@ import {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule, 
-    MatInputModule, 
+    MatButtonModule,
+    MatInputModule,
     MatFormFieldModule,
     MatCardModule,
     MatToolbarModule,
     MatTooltipModule,
     MatIconModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
