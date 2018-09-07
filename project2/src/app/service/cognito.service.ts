@@ -10,7 +10,7 @@ export class CognitoService {
   constructor() { 
     //Revature Pool and Clent Ids.
     const poolData = {
-      UserPoolId : ' us-east-2_eqhVcePBe',
+      UserPoolId : 'us-east-2_eqhVcePBe',
       ClientId : '4ptb0da4skq58fmigvjp65o1k'
     };
 
