@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     this.cognitoService.signIn(this.email, this.password).subscribe(
       result => {
         if (result) {
+          this.router.navigate(['search-bar']);
           // If there was an error
           if (result['message']) {
             this.errorMessage = 'Invalid credentials';

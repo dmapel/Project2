@@ -8,6 +8,7 @@
 
 .section {
     margin-top: -15px;
+    height: 200px;
 }
 
 mat-toolbar-row {
