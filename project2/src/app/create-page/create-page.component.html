@@ -14,11 +14,22 @@
         </mat-form-field>
       
         <mat-form-field>
-          <mat-select placeholder="Select a Theme">
-            <mat-option value="option">Option</mat-option>
+          <mat-select placeholder="Select a Theme" [(ngModel)]="selectedValue">
+            <mat-option *ngFor="let o of options" [value]="o.name">
+              {{o.label}}
+            </mat-option>
           </mat-select>
         </mat-form-field>
-<<<<<<< HEAD
+        <p style="text-align: center;"> The theme is   {{selectedValue}}</p>
+        <div id="preview" style="border: 3px solid black; width: 100px; height: 100;">
+        <!-- <h3 *ngIf = "{{selected}} == default" style="color: orangered;">Prview</h3>
+        <h3 *ngIf = "{{selected}} == light" style="color: wheat;">Prview</h3>
+        <h3 *ngIf = "{{selected}} == dark" style="color: black;">Prview</h3> -->
+       <p *ngIf = "selectedValue == 'light-theme'" style="color: azure; background-color: burlywood;">Test Light</p>
+       <p *ngIf = "selectedValue == 'dark-theme'" style="color: darkolivegreen; background-color: burlywood;">Test Dark</p>
+       <p *ngIf = "selectedValue == 'default-theme'" style="color:orangered; background-color: burlywood;">Test Default</p>
+        </div>
+
         <!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -42,10 +53,6 @@
         </div> -->
         <div class="button-row">
             <button mat-raised-button color="warn">Create Page</button>
-=======
-        <div class="button-row">
-            <button mat-raised-button color="primary">Create Page</button>
->>>>>>> 9086991960b71a472f7959ef01c0f64503fcad3a
           </div>
       </div>
 </div>
