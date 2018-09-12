@@ -1,0 +1,32 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto; 
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  #size {
+    width: 30%;
+    height:30%;
+    margin-left: 480px;
+    margin-top: 125px;  
+  }
+
+  .background {
+    height: 100%;
+    width: 100%;
+}
+
+label {
+  margin-left: 205px;
+}
+
+button {
+  margin-left: 250px;
+}
