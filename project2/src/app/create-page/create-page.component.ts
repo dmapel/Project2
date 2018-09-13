@@ -13,6 +13,8 @@ export class CreatePageComponent implements OnInit {
 {name:'orange-theme', label: 'Orange'},
 {name: 'default-theme', label: 'White'}
 ]
+
+//lElements of each page.
 selectedValue: string;
 title : string;
 body: string;
