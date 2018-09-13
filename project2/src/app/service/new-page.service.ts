@@ -33,4 +33,14 @@ export class NewPageService {
     return NewPageService.page;
   }
 
+  //Method to create new page.
+  createNewPage(page) {
+
+  }
+
+  //Method to update a page.
+  updatePage() {
+
+  }
+
 }

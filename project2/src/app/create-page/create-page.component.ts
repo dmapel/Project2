@@ -1,3 +1,4 @@
+import { NewPage } from './../models/new-page';
 import { NewPageService } from './../service/new-page.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -20,23 +21,36 @@ selectedValue: string;
 title : string;
 body: string;
 summary : string;
-
-  constructor(private http : HttpClient, private router : Router,
+page : NewPage;
+  constructor(private http : HttpClient, private router : Router, 
   private pageService : NewPageService) { }
 
   ngOnInit() {
   }
 
+  storePage() {
+    //Create a new page from user input.
+   this.page = {
+     title : this.title,
+     summary : this.summary,
+     body : this.body,
+    theme : this.selectedValue
+   }
+
+   console.log(this.page);
+   //Set the new page as the current page.
+   this.pageService.setPage(this.page);
+   //Test to get the current page.
+   console.log(this.pageService.getCurrentPage());
+   //Calls the method to set the current page's theme.
+   this.getSelectedValue()
+  }
+
   //Gets the selected theme.
 getSelectedValue() {
   console.log(this.selectedValue);
-  console.log(this.title);
-  console.log(this.summary);
-  console.log(this.body);
-  console.log(this.pageService.setTheme(this.selectedValue));
+  this.pageService.setTheme(this.selectedValue);
   console.log(this.pageService.getTheme());
-  //this.router.navigate(['page']);
-  
 }
 
 
