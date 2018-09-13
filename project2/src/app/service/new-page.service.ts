@@ -9,20 +9,22 @@ import { CreatePageComponent } from '../create-page/create-page.component';
 })
 export class NewPageService {
   //The page's elements.
-  private theme: string;
+  static theme: string;
   // Page.
   static page: Pages;
   private createPage: CreatePageComponent;
 
   constructor(private http: HttpClient) { }
 
+  //Set the current theme.
+  setTheme(t: string) {
+    NewPageService.theme = t;
+  }
   //Method to store a page's theme.
   getTheme() {
-    let s = this.createPage.getSelectedValue();
-    return s;
+    return NewPageService.theme;
   }
   // Method to store a page.
-  //Setting the current logged user.
   setPage(page) {
     NewPageService.page = page;
   }

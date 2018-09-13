@@ -1,3 +1,4 @@
+import { NewPageService } from './../service/new-page.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -20,7 +21,8 @@ title : string;
 body: string;
 summary : string;
 
-  constructor(private http : HttpClient, private router : Router) { }
+  constructor(private http : HttpClient, private router : Router,
+  private pageService : NewPageService) { }
 
   ngOnInit() {
   }
@@ -31,7 +33,9 @@ getSelectedValue() {
   console.log(this.title);
   console.log(this.summary);
   console.log(this.body);
-  this.router.navigate(['page']);
+  console.log(this.pageService.setTheme(this.selectedValue));
+  console.log(this.pageService.getTheme());
+  //this.router.navigate(['page']);
   
 }
 
