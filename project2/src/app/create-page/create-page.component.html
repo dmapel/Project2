@@ -3,14 +3,14 @@
     <h1>Create New Page</h1>
     <div class="example-container">
         <mat-form-field>
-          <input matInput placeholder="Title">
+          <input matInput placeholder="Title" [(ngModel)]="title">
         </mat-form-field>
         <mat-form-field>
-            <textarea matInput placeholder="Summary"></textarea>
+            <textarea matInput placeholder="Summary" [(ngModel)]="summary"></textarea>
           </mat-form-field>
       
         <mat-form-field>
-          <textarea matInput placeholder="Body"></textarea>
+          <textarea matInput placeholder="Body" [(ngModel)]="body"></textarea>
         </mat-form-field>
       
         <mat-form-field>
@@ -21,15 +21,6 @@
           </mat-select>
         </mat-form-field>
         <p style="text-align: center;"> The theme is   {{selectedValue}}</p>
-        <div id="preview" style="border: 3px solid black; width: 100px; height: 100;">
-        <!-- <h3 *ngIf = "{{selected}} == default" style="color: orangered;">Prview</h3>
-        <h3 *ngIf = "{{selected}} == light" style="color: wheat;">Prview</h3>
-        <h3 *ngIf = "{{selected}} == dark" style="color: black;">Prview</h3> -->
-       <p *ngIf = "selectedValue == 'light-theme'" style="color: azure; background-color: burlywood;">Test Light</p>
-       <p *ngIf = "selectedValue == 'dark-theme'" style="color: darkolivegreen; background-color: burlywood;">Test Dark</p>
-       <p *ngIf = "selectedValue == 'default-theme'" style="color:orangered; background-color: burlywood;">Test Default</p>
-        </div>
-
         <!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -52,7 +43,9 @@
           </a>
         </div> -->
         <div class="button-row">
-            <button mat-raised-button color="warn">Create Page</button>
+            <button mat-raised-button color="warn" (click)="getSelectedValue()">
+              Create Page
+            </button>
           </div>
       </div>
 </div>
