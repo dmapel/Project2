@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   errorMessage: string;
 
   constructor(private cognitoService: CognitoService,
-    private router: Router ) { }
+    private router: Router) { }
 
   ngOnInit() {
     // window.location.href= "https://revaturetech.auth.us-east-2.amazoncognito.com/login?response_type=token&client_id=4ptb0da4skq58fmigvjp65o1k&redirect_uri=http://localhost:4200/profile";
@@ -29,9 +29,11 @@ export class LoginComponent implements OnInit {
     this.cognitoService.signIn(this.email, this.password).subscribe(
       result => {
         if (result) {
+          this.router.navigate(['search-bar']);
           // If there was an error
           if (result['message']) {
             this.errorMessage = 'Invalid credentials';
+            alert("Username or password not valid. Please try again.");
             return;
           }
         }

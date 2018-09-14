@@ -1,16 +1,16 @@
 <div class="background">
 <img src= "{{img}}" id = "size">
 <div class="example-container">
-  <mat-form-field>
+  <mat-form-field style="width:580px;">
     <input [(ngModel)] = 'email' matInput placeholder="Enter your email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field style="width:570px;">
     <input [(ngModel)] = 'password' matInput placeholder="Enter your password" type="password">
   </mat-form-field>
 <div class="button-row">
   <button mat-raised-button color="warn" (click) = "login()">Login</button>
-</div>
+</div><br>
 <label>New user? Sign-up <a routerLink = "/signup">here</a>!</label>
 </div>
 </div>
