@@ -1,4 +1,4 @@
-import { Pages } from './../models/page';
+import { Page } from './../models/page';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -11,7 +11,7 @@ export class NewPageService {
   //The page's elements.
   static theme: string;
   // Page.
-  static page: Pages;
+  static page: Page;
   private createPage: CreatePageComponent;
 
   constructor(private http: HttpClient) { }
@@ -34,8 +34,8 @@ export class NewPageService {
   }
 
   //Method to create new page.
-  createNewPage(page : Pages) {
-    this.http.post<Pages>(environment.apiUrl + '/create/page' ,{page})
+  createNewPage(creatorId : number, title: string, summary: string, body: string) {
+    return this.http.post<Page>(environment.apiUrl + '/create/page' ,{creatorId, title, summary, body});
   }
 
   //Method to update a page.

@@ -3,6 +3,4 @@ export class Page {
  title: string;
  summary: string;
  body: string;
- theme: string;
-
 }

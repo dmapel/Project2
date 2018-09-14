@@ -51,6 +51,10 @@ import {
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { ViewUsersComponent } from './view-users/view-users.component';
+import { ViewPagesComponent } from './view-pages/view-pages.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +65,10 @@ import { FormsModule } from '@angular/forms';
     CreatePageComponent,
     ProfileComponent,
     SearchBarComponent,
+    AdminProfileComponent,
+    AdminNavbarComponent,
+    ViewUsersComponent,
+    ViewPagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +85,7 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     HttpClientModule,
     FormsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

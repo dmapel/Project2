@@ -3,6 +3,7 @@ import { NewPageService } from './../service/new-page.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-create-page',
@@ -23,23 +24,34 @@ body: string;
 summary : string;
 page : Page
   constructor(private http : HttpClient, private router : Router, 
-  private pageService : NewPageService) { }
+  private pageService : NewPageService, private userService : UserService
+) { }
+ //Gets the current user.
+ 
+  
 
   ngOnInit() {
+    let current = this.userService.getCurrentUser();
   }
 
   storePage() {
-    //Create a new page from user input.
-   this.page = {
-     //creatorId: this.u
-     title : this.title,
-     summary : this.summary,
-     body : this.body,
-    theme : this.selectedValue
-   }
-   
+    //Gets the current user so we can user their uId.
+   let current = this.userService.getCurrentUser();
+   console.log(current);
+  //Create a new page from user input.
+    this.page =  {
+      creatorId: current.uId,
+      title: this.title,
+      summary: this.summary,
+      body: this.body
+     }
+   //Insert new page in database.
+   this.pageService.createNewPage(this.page.creatorId, this.page.title, this.page.summary, this.page.body).subscribe(
+     data => {
+       console.log(data);
+     }
+   )
 
-   console.log(this.page);
    //Set the new page as the current page.
    this.pageService.setPage(this.page);
    //Test to get the current page.
