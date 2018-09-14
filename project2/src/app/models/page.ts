@@ -1,4 +1,4 @@
-export class Pages {
+export class Page {
  page_id: number;
  created_by_id: number;
  summary: string;
