@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../models/user';
 import { environment } from '../../environments/environment';
@@ -29,7 +29,8 @@ export class UserService {
     console.log('[LOG] - In UserService.getUserByUsername()');
     console.log(username);
     console.log(password);
-    return this.http.post<User>(environment.apiUrlLogin, HTTP_OPTIONS);
+    console.log('LOG - Looking in database.....');
+    return this.http.post<User>(environment.apiUrlLogin, {username,  password});
   }
 
   register(user: User): Observable<User> {

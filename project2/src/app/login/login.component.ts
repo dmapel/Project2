@@ -47,11 +47,15 @@ export class LoginComponent implements OnInit {
         user => {
           console.log(user);
           // if (user) {
+            // if (this.username === user.username)
             // console.log('Hits');
             // sessionStorage.setItem('user', JSON.stringify(user));
             // this.userService.user.next(user);
             // this.router.navigate(['search-bar']);
 
+          // }
+          // else {
+          //   console.log("User not found in database.");
           // }
         }
       )
