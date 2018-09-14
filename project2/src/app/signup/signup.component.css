@@ -12,16 +12,16 @@
   }
 
   #size {
-    width: 30%;
-    height:30%;
-    margin-left: 510px;
+    width: 100%;
+    /* margin-left: 510px;
     margin-top: 135px; 
-    margin-bottom: -29px; 
+    margin-bottom: -29px;  */
   }
 
   .background {
     height: 100%;
     width: 100%;
+    margin: 0 auto;
 }
 
 label {

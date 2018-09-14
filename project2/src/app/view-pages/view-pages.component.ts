@@ -13,6 +13,7 @@ export class ViewPagesComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.getAllPages();
   }
 
   getAllPages() {

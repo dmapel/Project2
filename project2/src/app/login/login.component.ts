@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   password: string;
   errorMessage: string;
   user: User;
+  display: string;
 
 
   constructor(private cognitoService: CognitoService,
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
         // If there was an error
         if (result['message']) {
           this.errorMessage = 'Invalid credentials';
-          alert("Username or password not valid. Please try again.");
+          this.display = "Username or password not valid. Please try again.";
           return;
         }
       }
@@ -45,17 +46,20 @@ export class LoginComponent implements OnInit {
     this.userService.getUserByUsername(this.username, this.password).subscribe(
       user => {
         console.log(user);
-        // if (user) {
-          // if (this.username === user.username)
-          // console.log('Hits');
-          // sessionStorage.setItem('user', JSON.stringify(user));
-          // this.userService.user.next(user);
-          // this.router.navigate(['search-bar']);
-
-        // }
-        // else {
-        //   console.log("User not found in database.");
-        // }
+        if (user) {
+          if (this.username === user.username)
+          console.log('Hits');
+          sessionStorage.setItem('user', JSON.stringify(user));
+          this.userService.user.next(user);
+          if (user.posId==2){
+            this.router.navigate(['search-bar'])
+          } else {
+            this.router.navigate(['admin-profile'])
+          }
+        }
+        else {
+          console.log("User not found in database.");
+        }
       }
     )
 
