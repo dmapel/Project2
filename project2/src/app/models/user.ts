@@ -1,7 +1,7 @@
 export class User  {
-    u_id: number;
-    f_name: string;
-    l_name: string;
+    uId: number;
+    fName: string;
+    lName: string;
     username: string;
-    position_id: number;
+    postId: number;
 }

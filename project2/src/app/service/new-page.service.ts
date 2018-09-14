@@ -34,8 +34,8 @@ export class NewPageService {
   }
 
   //Method to create new page.
-  createNewPage(page) {
-
+  createNewPage(page : Pages) {
+    this.http.post<Pages>(environment.apiUrl + '/create/page' ,{page})
   }
 
   //Method to update a page.

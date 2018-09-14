@@ -1,4 +1,4 @@
-import { NewPage } from './../models/new-page';
+import { Page } from './../models/page';
 import { NewPageService } from './../service/new-page.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -21,7 +21,7 @@ selectedValue: string;
 title : string;
 body: string;
 summary : string;
-page : NewPage;
+page : Page
   constructor(private http : HttpClient, private router : Router, 
   private pageService : NewPageService) { }
 
@@ -31,11 +31,13 @@ page : NewPage;
   storePage() {
     //Create a new page from user input.
    this.page = {
+     //creatorId: this.u
      title : this.title,
      summary : this.summary,
      body : this.body,
     theme : this.selectedValue
    }
+   
 
    console.log(this.page);
    //Set the new page as the current page.
