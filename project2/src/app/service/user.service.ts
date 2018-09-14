@@ -16,17 +16,25 @@ const HTTP_OPTIONS = {
 export class UserService {
 
   user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+  u : User;
 
   constructor(private http: HttpClient) { }
 
-  getUserByUsername(username: string, password: string): Observable<User> {
+  // getUserByUsername(username: string, password: string): Observable<User> {
+  //   console.log('[LOG] - In UserService.getUserByUsername()');
+  //   return this.http.post<User>(environment.apiUrlLogin + '?username=' + username + '&password=' + password, HTTP_OPTIONS);
+  // }
+
+  getUserByUsername(username: string, password: string) {
     console.log('[LOG] - In UserService.getUserByUsername()');
-    return this.http.post<User>(environment.apiUrlLogin + 'users?username=' + username, HTTP_OPTIONS);
+    console.log(username);
+    console.log(password);
+    return this.http.post<User>(environment.apiUrlLogin, HTTP_OPTIONS);
   }
 
   register(user: User): Observable<User> {
     console.log('[LOG] - In UserService.register()');
-    return this.http.post<User>(environment.apiUrlLogin + 'users', JSON.stringify(user), HTTP_OPTIONS);
+    return this.http.post<User>(environment.apiUrlLogin + 'user', JSON.stringify(user), HTTP_OPTIONS);
   }
 
   updateInfo(user: User): Observable<User> {

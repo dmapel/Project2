@@ -1,3 +1,4 @@
+import { Pages } from './../models/page';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   password: string;
   errorMessage: string;
   user: User;
+  pages: Pages;
 
   constructor(private cognitoService: CognitoService,
     private router: Router, private userService: UserService) { }
@@ -41,19 +43,22 @@ export class LoginComponent implements OnInit {
         }
       })
 
-      this.userService.getUserByUsername(this.username).subscribe(
+      this.userService.getUserByUsername(this.username, this.password).subscribe(
         user => {
-          if (user) {
-            console.log('Hits');
-            sessionStorage.setItem('user', JSON.stringify(user));
-            this.userService.user.next(user);
-            this.router.navigate(['search-bar']);
+          let final = JSON.parse(user.toString())
+          console.log(final);
+          // if (user) {
+            // console.log('Hits');
+            // sessionStorage.setItem('user', JSON.stringify(user));
+            // this.userService.user.next(user);
+            // this.router.navigate(['search-bar']);
 
-          }
+          // }
         }
       )
 
-  }
 
+
+  }
 
 }
