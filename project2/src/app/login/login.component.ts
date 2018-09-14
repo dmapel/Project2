@@ -45,8 +45,7 @@ export class LoginComponent implements OnInit {
 
       this.userService.getUserByUsername(this.username, this.password).subscribe(
         user => {
-          let final = JSON.parse(user.toString())
-          console.log(final);
+          console.log(user);
           // if (user) {
             // console.log('Hits');
             // sessionStorage.setItem('user', JSON.stringify(user));
