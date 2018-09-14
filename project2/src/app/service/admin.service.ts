@@ -1,9 +1,18 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { Page } from '../models/page';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+
+getAllPages() {
+ return this.http.get<Page>(environment.apiUrl + '/get/allpages');
+}
+
 }

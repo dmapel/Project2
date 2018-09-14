@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   context: `http://localhost:4200`,
+  apiUrl : 'http://ec2-18-188-229-73.us-east-2.compute.amazonaws.com:8080',
   apiUrlLogin: 'http://ec2-18-188-229-73.us-east-2.compute.amazonaws.com:8080/login/user',
   apiUrlUpdate: 'http://ec2-18-188-229-73.us-east-2.compute.amazonaws.com:8080/update/user'
 };

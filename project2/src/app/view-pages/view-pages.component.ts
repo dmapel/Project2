@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { Page } from '../models/page';
+import { AdminService } from '../service/admin.service';
 
 
 @Component({
@@ -10,14 +11,14 @@ import { Page } from '../models/page';
 })
 export class ViewPagesComponent implements OnInit {
   page: Page;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private adminService : AdminService) { }
 
   ngOnInit() {
     this.getAllPages();
   }
 
   getAllPages() {
-    this.userService.getAllPages().subscribe(
+    this.adminService.getAllPages().subscribe(
       (data: any) => {
         console.log(data);
         this.page = data;
