@@ -7,6 +7,9 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CreatePageComponent } from './create-page/create-page.component';
+import { ViewUsersComponent } from './view-users/view-users.component';
+import { ViewPagesComponent } from './view-pages/view-pages.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 const routes: Routes = [
   {
@@ -32,6 +35,18 @@ const routes: Routes = [
   {
     path: 'create-page',
     component: CreatePageComponent
+},
+{
+  path: 'view-users',
+  component: ViewUsersComponent
+},
+{
+  path: 'view-pages',
+  component: ViewPagesComponent
+},
+{
+  path: 'admin-profile',
+  component: AdminProfileComponent
 }
 ]
 

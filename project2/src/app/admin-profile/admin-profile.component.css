@@ -1,0 +1,26 @@
+
+#one {
+    margin-top: 900px;
+    text-decoration: none;
+    color: white;
+    width: 350px;
+    margin-left: 315px;
+}
+#two {
+    margin-top: 900px;
+    text-decoration: none;
+    color: white;
+    width: 350px;
+    margin-left: 25px;
+}
+
+#size {
+    width: 30%;
+    height:30%;
+    margin-left: 495px;
+    margin-top: 125px;  
+  }
+
+  h2 {
+      text-align: center;
+  }

@@ -19,12 +19,7 @@ export class UserService {
   u : User;
 
   constructor(private http: HttpClient) { }
-
-  // getUserByUsername(username: string, password: string): Observable<User> {
-  //   console.log('[LOG] - In UserService.getUserByUsername()');
-  //   return this.http.post<User>(environment.apiUrlLogin + '?username=' + username + '&password=' + password, HTTP_OPTIONS);
-  // }
-
+//Gets the user information by the username and password. 
   getUserByUsername(username: string, password: string) {
     console.log('[LOG] - In UserService.getUserByUsername()');
     console.log(username);
@@ -41,5 +36,9 @@ export class UserService {
   updateInfo(user: User): Observable<User> {
     console.log('[LOG] - In UserService.updateInfo()');
     return this.http.put<User>(environment.apiUrlUpdate + `users/${user.uId}`, JSON.stringify(user),  HTTP_OPTIONS);
+  }
+
+  getAllPages() {
+    return this.http.get('http://ec2-18-188-229-73.us-east-2.compute.amazonaws.com:8080/get/allpages');
   }
 }
