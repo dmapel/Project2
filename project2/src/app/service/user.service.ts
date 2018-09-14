@@ -16,16 +16,16 @@ const HTTP_OPTIONS = {
 export class UserService {
 
   user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
-  u : User;
+  static currentUser: User;
 
   constructor(private http: HttpClient) { }
-//Gets the user information by the username and password. 
+  //Gets the user information by the username and password. 
   getUserByUsername(username: string, password: string) {
     console.log('[LOG] - In UserService.getUserByUsername()');
     console.log(username);
     console.log(password);
     console.log('LOG - Looking in database.....');
-    return this.http.post<User>(environment.apiUrlLogin, {username,  password});
+    return this.http.post<User>(environment.apiUrlLogin, { username, password });
   }
 
   register(user: User): Observable<User> {
@@ -35,10 +35,16 @@ export class UserService {
 
   updateInfo(user: User): Observable<User> {
     console.log('[LOG] - In UserService.updateInfo()');
-    return this.http.put<User>(environment.apiUrlUpdate + `users/${user.uId}`, JSON.stringify(user),  HTTP_OPTIONS);
+    return this.http.put<User>(environment.apiUrlUpdate + `users/${user.uId}`, JSON.stringify(user), HTTP_OPTIONS);
   }
 
-  getAllPages() {
-    return this.http.get('http://ec2-18-188-229-73.us-east-2.compute.amazonaws.com:8080/get/allpages');
-  }
+  //Sets the current user.
+  setCurrentUser(user: User) {
+    UserService.currentUser = user;
+}
+
+//Gets the current user.
+getCurrentUser() {
+  return UserService.currentUser;
+}
 }

@@ -33,6 +33,24 @@ export class LoginComponent implements OnInit {
   this.cognitoService.signIn(this.username, this.password).subscribe(
     result => {
       if (result) {
+        this.userService.getUserByUsername(this.username, this.password).subscribe(
+          user => {
+            console.log(user);
+            if (user) {
+              if (this.username === user.username)
+              console.log('Found in database.');
+              
+              //Set the current user.
+              this.userService.setCurrentUser(user);
+              //Navigates to the search page.
+              this.router.navigate(['search-bar']);
+    
+            }
+            else {
+              console.log("User not found in database.");
+            }
+          }
+        )
         // If there was an error
         if (result['message']) {
           this.errorMessage = 'Invalid credentials';
@@ -42,22 +60,7 @@ export class LoginComponent implements OnInit {
       }
     })
 
-    this.userService.getUserByUsername(this.username, this.password).subscribe(
-      user => {
-        console.log(user);
-        // if (user) {
-          // if (this.username === user.username)
-          // console.log('Hits');
-          // sessionStorage.setItem('user', JSON.stringify(user));
-          // this.userService.user.next(user);
-          // this.router.navigate(['search-bar']);
-
-        // }
-        // else {
-        //   console.log("User not found in database.");
-        // }
-      }
-    )
+   
 
 
 
