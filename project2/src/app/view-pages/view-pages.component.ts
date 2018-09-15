@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { Page } from '../models/page';
 import { AdminService } from '../service/admin.service';
+import { MatPaginator } from '@angular/material';
 
 
 @Component({
@@ -10,7 +11,12 @@ import { AdminService } from '../service/admin.service';
   styleUrls: ['./view-pages.component.css']
 })
 export class ViewPagesComponent implements OnInit {
-  page: Page;
+  page: Page [];
+final = this.adminService.getAllPages().subscribe(data => {
+  return (data.title);
+})
+  displayColumns: string[] = ['pageId', 'title', 'tags', 'timeSubmission'];
+  @ViewChild(MatPaginator) paginator: MatPaginator
   constructor(private userService: UserService, private adminService : AdminService) { }
 
   ngOnInit() {

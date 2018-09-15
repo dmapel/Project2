@@ -85,7 +85,8 @@ import { ViewPagesComponent } from './view-pages/view-pages.component';
     MatSelectModule,
     HttpClientModule,
     FormsModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
