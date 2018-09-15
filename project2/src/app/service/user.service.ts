@@ -25,26 +25,31 @@ export class UserService {
     console.log(username);
     console.log(password);
     console.log('LOG - Looking in database.....');
-    return this.http.post<User>(environment.apiUrlLogin, { username, password });
+    return this.http.post<User>(environment.apiUrl + '/login/user ', { username, password });
   }
 
   register(user: User): Observable<User> {
     console.log('[LOG] - In UserService.register()');
-    return this.http.post<User>(environment.apiUrlLogin + 'user', JSON.stringify(user), HTTP_OPTIONS);
+    return this.http.post<User>(environment.apiUrl + 'user', JSON.stringify(user), HTTP_OPTIONS);
   }
 
   updateInfo(user: User): Observable<User> {
     console.log('[LOG] - In UserService.updateInfo()');
-    return this.http.put<User>(environment.apiUrlUpdate + `users/${user.uId}`, JSON.stringify(user), HTTP_OPTIONS);
+    return this.http.put<User>(environment.apiUrl + `users/${user.uId}`, JSON.stringify(user), HTTP_OPTIONS);
   }
 
   //Sets the current user.
   setCurrentUser(user: User) {
     UserService.currentUser = user;
-}
+  }
 
-//Gets the current user.
-getCurrentUser() {
-  return UserService.currentUser;
-}
+  //Gets the current user.
+  getCurrentUser() {
+    return UserService.currentUser;
+  }
+
+  //Logout the current user.
+  logoutUser() {
+    UserService.currentUser = null;
+  }
 }

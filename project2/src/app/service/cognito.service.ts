@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as AWSCognito from 'amazon-cognito-identity-js';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -47,4 +48,9 @@ export class CognitoService {
 
     return resultStream;
   }
+
+
+  //Register a new user.
+
+
 }

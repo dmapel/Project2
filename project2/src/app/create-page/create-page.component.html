@@ -3,21 +3,24 @@
     <h1>Create New Page</h1>
     <div class="example-container">
         <mat-form-field>
-          <input matInput placeholder="Title">
+          <input matInput placeholder="Title" [(ngModel)]="title">
         </mat-form-field>
         <mat-form-field>
-            <textarea matInput placeholder="Summary"></textarea>
+            <textarea matInput placeholder="Summary" [(ngModel)]="summary"></textarea>
           </mat-form-field>
       
         <mat-form-field>
-          <textarea matInput placeholder="Body"></textarea>
+          <textarea matInput placeholder="Body" [(ngModel)]="body"></textarea>
         </mat-form-field>
       
         <mat-form-field>
-          <mat-select placeholder="Select a Theme">
-            <mat-option value="option">Option</mat-option>
+          <mat-select placeholder="Select a Theme" [(ngModel)]="selectedValue">
+            <mat-option *ngFor="let o of options" [value]="o.name">
+              {{o.label}}
+            </mat-option>
           </mat-select>
         </mat-form-field>
+        <p style="text-align: center;"> The theme is   {{selectedValue}}</p>
         <!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -40,7 +43,9 @@
           </a>
         </div> -->
         <div class="button-row">
-            <button mat-raised-button color="warn">Create Page</button>
+            <button mat-raised-button color="warn" (click)="storePage()">
+              Create Page
+            </button>
           </div>
       </div>
 </div>
