@@ -33,6 +33,10 @@ export class CreatePageComponent implements OnInit {
     //Gets the current user so we can user their uId.
     let current = this.userService.getCurrentUser();
     console.log(current);
+     //If there is no current user, it will take it back to the login page.
+   if (!current) {
+    this.router.navigate(['']);
+  }
     //Create a new page from user input.
     this.page = {
       creatorId: current.uId,

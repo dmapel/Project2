@@ -30,16 +30,17 @@
         <mat-toolbar-row *ngIf = "!editUser">
           <h4>123*******</h4>
           <span style="flex: 1 1 auto"></span>
-          <i class="material-icons" mat-raised-button matTooltip="Change Password" aria-label="Button that displays a tooltip when focused or hovered over" (click)="updateUser()">
+          <i class="material-icons" mat-raised-button matTooltip="Change Password" aria-label="Button that displays a tooltip when focused or hovered over" (click)="open()">
             border_color
             </i>
         </mat-toolbar-row>
         <mat-toolbar-row *ngIf = "editUser">
           <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="this.user.password" placeholder="Change Password" maxlength="30">
+            <input matInput [(ngModel)]="newPassword" placeholder="Change Password" maxlength="30">
           </mat-form-field>
         <span style="flex: 1 1 auto"></span>
         <button type="button" (click)="save()">Save</button>
+        <mat-icon style="width:100px; margin-left: 20px; margin-top: 10px; cursor: pointer;" (click) = "cancel()">cancel</mat-icon>
       </mat-toolbar-row>
       </mat-toolbar>
     </span>

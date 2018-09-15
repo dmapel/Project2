@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { NewPageService } from './../service/new-page.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
@@ -12,28 +13,34 @@ export class ProfileComponent implements OnInit {
   img = 'assets/pics/profile-placeholder.png';
   editUser = false;
   user: User;
- 
+  cUser: User;
+  currentPassword: string;
+  newPassword: string;
 
-  constructor(private userService: UserService, private pageService: NewPageService) { }
+  constructor(private userService: UserService, private pageService: NewPageService, private router: Router) { }
 
   ngOnInit() {
+    this.cUser = this.userService.getCurrentUser();
+    console.log(this.cUser);
+    //If there is no current user, it will take it back to the login page.
+   if (!this.cUser) {
+     this.router.navigate(['']);
+   }
   }
-  //Get the current user.
-  cUser = this.userService.getCurrentUser();
 
 
 
-  updateUser() {
+
+  open() {
     this.editUser = true;
   }
+//Allows user to cancel process.
+cancel() {
+  this.editUser = false;
+}
 
-  save() {
-    //post and change edit user to false
-    this.userService.updateInfo(this.user).subscribe(
-      result => {
-        sessionStorage.setItem('user', JSON.stringify(this.user));
-      }
-    );
+  updateUser() {
+ console.log(this.newPassword);
     this.editUser = false;
   }
 }
