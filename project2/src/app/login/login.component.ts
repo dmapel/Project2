@@ -9,7 +9,7 @@ import { CognitoService } from '../service/cognito.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  img = "assets/pics/revature-logo-600x219.png";
+  img = 'assets/pics/revature-logo-600x219.png';
   email: string;
   password: string;
   errorMessage: string;
@@ -18,9 +18,12 @@ export class LoginComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    // window.location.href= "https://revaturetech.auth.us-east-2.amazoncognito.com/login?response_type=token&client_id=4ptb0da4skq58fmigvjp65o1k&redirect_uri=http://localhost:4200/profile";
+    /* window.location.href= "https://revaturetech.auth.us-east-2.amazoncognito.com
+     *     /login?response_type=token&client_id=4ptb0da4skq58fmigvjp65o1k
+     *      &redirect_uri=http://localhost:4200/profile";
+     */
   }
-  //Attempt to sign in a user.
+  // Attempt to sign in a user.
   login() {
     console.log(this.email);
     console.log(this.password);
@@ -33,13 +36,11 @@ export class LoginComponent implements OnInit {
           // If there was an error
           if (result['message']) {
             this.errorMessage = 'Invalid credentials';
-            alert("Username or password not valid. Please try again.");
+            alert('Username or password not valid. Please try again.');
             return;
           }
         }
-      })
-
+      });
   }
-
 
 }
