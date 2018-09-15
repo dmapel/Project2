@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import * as AWSCognito from 'amazon-cognito-identity-js';
 import { BehaviorSubject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class CognitoService {
   private userPool: AWSCognito.CognitoUserPool;
-  constructor() { 
-    //Revature Pool and Clent Ids.
+
+  constructor() {
+    // Revature Pool and Clent Ids.
     const poolData = {
       UserPoolId : 'us-east-2_eqhVcePBe',
       ClientId : '4ptb0da4skq58fmigvjp65o1k'
@@ -16,7 +18,7 @@ export class CognitoService {
     this.userPool = new AWSCognito.CognitoUserPool(poolData);
   }
 
-  //Sign in a user attempt.
+  // Sign in a user attempt.
   signIn(username: string, password: string): BehaviorSubject<object> {
     const userData = {
       Username: username,
