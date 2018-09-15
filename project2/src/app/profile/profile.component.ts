@@ -1,3 +1,4 @@
+import { NewPageService } from './../service/new-page.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { User } from '../models/user';
@@ -11,10 +12,16 @@ export class ProfileComponent implements OnInit {
   img = 'assets/pics/profile-placeholder.png';
   editUser = false;
   user: User;
+ 
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private pageService: NewPageService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
+  //Get the current user.
+  cUser = this.userService.getCurrentUser();
+
+
 
   updateUser() {
     this.editUser = true;

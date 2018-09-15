@@ -26,9 +26,6 @@ export class CreatePageComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router,
     private pageService: NewPageService, private userService: UserService
   ) { }
-  //Gets the current user.
-
-
   ngOnInit() {
   }
 
