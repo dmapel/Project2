@@ -29,7 +29,6 @@ export class CreatePageComponent implements OnInit {
   //Gets the current user.
 
 
-
   ngOnInit() {
   }
 

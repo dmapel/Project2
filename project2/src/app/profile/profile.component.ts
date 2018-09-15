@@ -8,14 +8,13 @@ import { User } from '../models/user';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  img = "assets/pics/profile-placeholder.png"
+  img = 'assets/pics/profile-placeholder.png';
   editUser = false;
   user: User;
 
   constructor(private userService: UserService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   updateUser() {
     this.editUser = true;

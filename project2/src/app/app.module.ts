@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -10,6 +13,10 @@ import { PageComponent } from './page/page.component';
 import { CreatePageComponent } from './create-page/create-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { ViewUsersComponent } from './view-users/view-users.component';
+import { ViewPagesComponent } from './view-pages/view-pages.component';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -49,12 +56,7 @@ import {
   MatFormFieldModule,
   MatOptionModule
 } from '@angular/material';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { AdminProfileComponent } from './admin-profile/admin-profile.component';
-import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
-import { ViewUsersComponent } from './view-users/view-users.component';
-import { ViewPagesComponent } from './view-pages/view-pages.component';
+
 @NgModule({
   declarations: [
     AppComponent,
