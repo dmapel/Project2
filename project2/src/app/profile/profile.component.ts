@@ -11,9 +11,10 @@ export class ProfileComponent implements OnInit {
   img = 'assets/pics/profile-placeholder.png';
   editUser = false;
   user: User;
+ 
 
   constructor(private userService: UserService) { }
-
+  cUser = this.userService.getCurrentUser();
   ngOnInit() { }
 
   updateUser() {
