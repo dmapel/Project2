@@ -1,3 +1,4 @@
+import { NewPageService } from './../service/new-page.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { User } from '../models/user';
@@ -13,9 +14,14 @@ export class ProfileComponent implements OnInit {
   user: User;
  
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private pageService: NewPageService) { }
+
+  ngOnInit() {
+  }
+  //Get the current user.
   cUser = this.userService.getCurrentUser();
-  ngOnInit() { }
+
+
 
   updateUser() {
     this.editUser = true;

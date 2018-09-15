@@ -4,7 +4,6 @@ import { UserService } from '../service/user.service';
 import { Page } from '../models/page';
 
 
-
 @Component({
   selector: 'app-view-pages',
   templateUrl: './view-pages.component.html',
