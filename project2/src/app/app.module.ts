@@ -13,6 +13,10 @@ import { PageComponent } from './page/page.component';
 import { CreatePageComponent } from './create-page/create-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { ViewUsersComponent } from './view-users/view-users.component';
+import { ViewPagesComponent } from './view-pages/view-pages.component';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -63,6 +67,10 @@ import {
     CreatePageComponent,
     ProfileComponent,
     SearchBarComponent,
+    AdminProfileComponent,
+    AdminNavbarComponent,
+    ViewUsersComponent,
+    ViewPagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +87,7 @@ import {
     MatSelectModule,
     HttpClientModule,
     FormsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

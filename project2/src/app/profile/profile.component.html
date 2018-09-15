@@ -16,24 +16,31 @@
     <span>
       <mat-toolbar style="margin-top: 40px">
         <mat-toolbar-row>
-          <h2>fname lname</h2>
+          <h2>{{this.user.fName}} {{this.user.lName}}</h2>
         </mat-toolbar-row>
         <mat-toolbar-row>
-          <h3>Email Address:</h3>
+          <h3>Username:</h3>
         </mat-toolbar-row>
         <mat-toolbar-row>
-          <h4>email@email.com</h4>
+          <h4>{{this.user.username}}</h4>
         </mat-toolbar-row>
         <mat-toolbar-row>
           <h3>Password:</h3>
         </mat-toolbar-row>
-        <mat-toolbar-row>
+        <mat-toolbar-row *ngIf = "!editUser">
           <h4>123*******</h4>
           <span style="flex: 1 1 auto"></span>
-          <i class="material-icons" mat-raised-button matTooltip="Change Password" aria-label="Button that displays a tooltip when focused or hovered over">
+          <i class="material-icons" mat-raised-button matTooltip="Change Password" aria-label="Button that displays a tooltip when focused or hovered over" (click)="updateUser()">
             border_color
             </i>
         </mat-toolbar-row>
+        <mat-toolbar-row *ngIf = "editUser">
+          <mat-form-field class="example-full-width">
+            <input matInput [(ngModel)]="this.user.password" placeholder="Change Password" maxlength="30">
+          </mat-form-field>
+        <span style="flex: 1 1 auto"></span>
+        <button type="button" (click)="save()">Save</button>
+      </mat-toolbar-row>
       </mat-toolbar>
     </span>
   </mat-toolbar>

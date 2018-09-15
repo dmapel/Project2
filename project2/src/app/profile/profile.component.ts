@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../service/user.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-profile',
@@ -7,8 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   img = 'assets/pics/profile-placeholder.png';
-  constructor() { }
+  editUser = false;
+  user: User;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit() { }
 
+  updateUser() {
+    this.editUser = true;
+  }
+
+  save() {
+    //post and change edit user to false
+    this.userService.updateInfo(this.user).subscribe(
+      result => {
+        sessionStorage.setItem('user', JSON.stringify(this.user));
+      }
+    );
+    this.editUser = false;
+  }
 }

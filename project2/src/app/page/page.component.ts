@@ -1,3 +1,4 @@
+import { NewPageService } from './../service/new-page.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pageService : NewPageService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getTheme();
+  }
 
+  getTheme() {
+   console.log(this.pageService.getTheme());
+  }
 }

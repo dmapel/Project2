@@ -1,3 +1,4 @@
+import { UserService } from './../service/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class SearchBarComponent implements OnInit {
   img = 'assets/pics/revature-logo-600x219.png';
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    let current = this.userService.getCurrentUser();
+    console.log(current);
+  }
 
 }
