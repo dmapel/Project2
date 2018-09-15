@@ -24,6 +24,7 @@
     "@angular/router": "^6.1.0",
     "@types/hammerjs": "^2.0.35",
     "amazon-cognito-identity-js": "^2.0.26",
+    "aws-sdk": "^2.315.0",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
     "rxjs": "^6.0.0",
