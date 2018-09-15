@@ -12,23 +12,16 @@ import { MatPaginator } from '@angular/material';
 })
 export class ViewPagesComponent implements OnInit {
   page: Page [];
-final = this.adminService.getAllPages().subscribe(data => {
-  return (data.title);
-})
-  displayColumns: string[] = ['pageId', 'title', 'tags', 'timeSubmission'];
-  @ViewChild(MatPaginator) paginator: MatPaginator
+
   constructor(private userService: UserService, private adminService : AdminService) { }
 
   ngOnInit() {
-    this.getAllPages();
-  }
-
-  getAllPages() {
     this.adminService.getAllPages().subscribe(
       (data: any) => {
         console.log(data);
         this.page = data;
-      }
+  }
+
     )
   }
 

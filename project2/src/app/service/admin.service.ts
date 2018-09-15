@@ -13,7 +13,7 @@ export class AdminService {
 
 
 getAllPages() {
- return this.http.get<Page>(environment.apiUrl + '/get/allpages');
+ return this.http.get<Page[]>(environment.apiUrl + '/get/allpages');
 }
 
 getAllUsers() {
