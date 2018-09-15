@@ -14,7 +14,6 @@ export class PageComponent implements OnInit {
     this.getTheme();
   }
 
-
   getTheme() {
    console.log(this.pageService.getTheme());
   }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+
 import { ProfileComponent } from './profile/profile.component';
 import { PageComponent } from './page/page.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
@@ -15,11 +16,11 @@ const routes: Routes = [
   {
     path: '',
     component: LoginComponent
-},
+  },
   {
     path: 'signup',
     component: SignupComponent
-},
+  },
   {
     path: 'profile',
     component: ProfileComponent
@@ -35,20 +36,20 @@ const routes: Routes = [
   {
     path: 'create-page',
     component: CreatePageComponent
-},
-{
-  path: 'view-users',
-  component: ViewUsersComponent
-},
-{
-  path: 'view-pages',
-  component: ViewPagesComponent
-},
-{
-  path: 'admin-profile',
-  component: AdminProfileComponent
-}
-]
+  },
+  {
+    path: 'view-users',
+    component: ViewUsersComponent
+  },
+  {
+    path: 'view-pages',
+    component: ViewPagesComponent
+  },
+  {
+    path: 'admin-profile',
+    component: AdminProfileComponent
+  }
+];
 
 @NgModule({
   imports: [

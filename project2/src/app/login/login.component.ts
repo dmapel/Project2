@@ -11,8 +11,9 @@ import { User } from '../models/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  img = "assets/pics/revature-logo-600x219.png";
+  img = 'assets/pics/revature-logo-600x219.png';
   username: string;
+
   password: string;
   errorMessage: string;
   user: User;
@@ -23,8 +24,12 @@ export class LoginComponent implements OnInit {
     private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    // window.location.href= "https://revaturetech.auth.us-east-2.amazoncognito.com/login?response_type=token&client_id=4ptb0da4skq58fmigvjp65o1k&redirect_uri=http://localhost:4200/profile";
+    /* window.location.href= "https://revaturetech.auth.us-east-2.amazoncognito.com
+     *     /login?response_type=token&client_id=4ptb0da4skq58fmigvjp65o1k
+     *      &redirect_uri=http://localhost:4200/profile";
+     */
   }
+  
  //Attempt to sign in a user.
  login() {
   console.log(this.username);

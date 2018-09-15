@@ -28,8 +28,6 @@ page : Page
 ) { }
  //Gets the current user.
  
-  
-
   ngOnInit() {
     let current = this.userService.getCurrentUser();
   }
