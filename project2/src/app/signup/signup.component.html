@@ -5,18 +5,24 @@
   <div class="example-container">
     <h2>Create an account:</h2>
     <mat-form-field style="width:100%;">
-      <input matInput placeholder="Enter your email">
+      <input matInput placeholder="Enter your first name" [(ngModel)] = "name"> 
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+      <input matInput placeholder="Enter your email" [(ngModel)] = "email">
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+      <input matInput placeholder="Enter your username" [(ngModel)] = "username">
     </mat-form-field>
   
     <mat-form-field style="width:100%;">
-      <input matInput placeholder="Enter your password">
+      <input matInput placeholder="Enter your password" [(ngModel)] = "password">
     </mat-form-field>
     
     <mat-form-field style="width:100%;">
-      <input matInput placeholder="Confirm your password">
+      <input matInput placeholder="Confirm your password" [(ngModel)] = "cPassword">
     </mat-form-field>
   <div class="button-row">
-    <button mat-raised-button color="warn">Register</button>
+    <button mat-raised-button color="warn" (click) = "registerUser()">Register</button>
   </div>
   <label>Already a user? Login <a routerLink = "">here</a>!</label>
   </div>

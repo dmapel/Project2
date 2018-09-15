@@ -3,6 +3,7 @@ import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../models/user';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 const HTTP_OPTIONS = {
   headers: new HttpHeaders({
@@ -18,7 +19,7 @@ export class UserService {
   user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
   static currentUser: User;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router : Router) { }
   //Gets the user information by the username and password. 
   getUserByUsername(username: string, password: string) {
     console.log('[LOG] - In UserService.getUserByUsername()');

@@ -2,7 +2,6 @@ import { AdminService } from './../service/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { Page } from '../models/page';
-import { AdminService } from '../service/admin.service';
 
 
 @Component({
