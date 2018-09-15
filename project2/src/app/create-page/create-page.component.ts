@@ -11,59 +11,57 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./create-page.component.css']
 })
 export class CreatePageComponent implements OnInit {
- options =  [
-{name: 'teal-theme', label: 'Teal'},
-{name:'orange-theme', label: 'Orange'},
-{name: 'default-theme', label: 'White'}
-]
+  options = [
+    { name: 'teal-theme', label: 'Teal' },
+    { name: 'orange-theme', label: 'Orange' },
+    { name: 'default-theme', label: 'White' }
+  ]
 
-//lElements of each page.
-selectedValue: string;
-title : string;
-body: string;
-summary : string;
-page : Page
-  constructor(private http : HttpClient, private router : Router, 
-  private pageService : NewPageService, private userService : UserService
-) { }
- //Gets the current user.
- 
+  //lElements of each page.
+  selectedValue: string;
+  title: string;
+  body: string;
+  summary: string;
+  page: Page
+  constructor(private http: HttpClient, private router: Router,
+    private pageService: NewPageService, private userService: UserService
+  ) { }
   ngOnInit() {
-    let current = this.userService.getCurrentUser();
   }
 
   storePage() {
     //Gets the current user so we can user their uId.
-   let current = this.userService.getCurrentUser();
-   console.log(current);
-  //Create a new page from user input.
-    this.page =  {
+    let current = this.userService.getCurrentUser();
+    console.log(current);
+    //Create a new page from user input.
+    this.page = {
       creatorId: current.uId,
       title: this.title,
       summary: this.summary,
       body: this.body
-     }
-   //Insert new page in database.
-   this.pageService.createNewPage(this.page.creatorId, this.page.title, this.page.summary, this.page.body).subscribe(
-     data => {
-       console.log(data);
-     }
-   )
+    }
+    //Insert new page in database.
+    this.pageService.createNewPage(this.page.creatorId, this.page.title, this.page.summary, this.page.body).subscribe(
+      data => {
+        console.log(data);
+      }
+    )
 
-   //Set the new page as the current page.
-   this.pageService.setPage(this.page);
-   //Test to get the current page.
-   console.log(this.pageService.getCurrentPage());
-   //Calls the method to set the current page's theme.
-   this.getSelectedValue()
+    //Set the new page as the current page.
+    this.pageService.setPage(this.page);
+    //Test to get the current page.
+    console.log(this.pageService.getCurrentPage());
+    //Calls the method to set the current page's theme.
+    this.getSelectedValue()
   }
 
   //Gets the selected theme.
-getSelectedValue() {
-  console.log(this.selectedValue);
-  this.pageService.setTheme(this.selectedValue);
-  console.log(this.pageService.getTheme());
-}
+  getSelectedValue() {
+    console.log(this.selectedValue);
+    this.pageService.setTheme(this.selectedValue);
+    console.log(this.pageService.getTheme());
+    this.router.navigate(['page']);
+  }
 
 
 }
