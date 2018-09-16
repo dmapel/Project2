@@ -11,9 +11,9 @@ phases:
             - ng build --prod
     post_build:
          commands:
-            - aws s3 sync --delete dist/Project-Two s3://project2client
+            - aws s3 sync --delete dist/Project-Two s3://codepipeline-us-east-2-593433248581
 artifacts:
     files:
         - '**/*'
-    base-directory: 'project2client*'
+    base-directory: 'project2angPipeline*'
     discard-paths: yes
