@@ -28,12 +28,12 @@ export class UserService {
     console.log(username);
     console.log(password);
     console.log('LOG - Looking in database.....');
-    return this.http.post<User>(environment.apiUrl + '/login/user ', { username, password });
+    return this.http.post<User>(environment.apiUrl + 'login/user', {username, password});
   }
   //Allows a user to sign themeselves up.
-  register(user: User): Observable<User> {
+  register(fName: string, lName: string, username: string, password: string){
     console.log('[LOG] - In UserService.register()');
-    return this.http.post<User>(environment.apiUrl + 'user', JSON.stringify(user), HTTP_OPTIONS);
+    return this.http.post<User>(environment.apiUrl + 'create/user', {fName, lName, username, password});
   }
   //Updates the user info.
   updateInfo(fName, lName, username, password, uId): Observable<User> {

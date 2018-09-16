@@ -1,5 +1,8 @@
+import { Router } from '@angular/router';
 import { CognitoService } from './../service/cognito.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,10 +13,12 @@ export class SignupComponent implements OnInit {
   img = "assets/pics/revature-logo-600x219.png"
   username: string;
   password: string;
-  name : string;
+  fName : string;
+  lName : string;
   email: string;
   cPassword: string;
-  constructor(private cognito: CognitoService) { }
+  user: User;
+  constructor(private cognito: CognitoService, private userService : UserService, private router : Router) { }
 
   ngOnInit() { }
 
@@ -22,9 +27,15 @@ export class SignupComponent implements OnInit {
     console.log(this.email);
     console.log(this.password);
 
-     this.cognito.registerUser(this.username, this.password, this.email).subscribe(
+    //Add user to cognito pool.
+     this.cognito.registerUser(this.username, this.password, this.email,).subscribe(
        data => {
-         console.log(data)
+         console.log(data);
+        //Pass to database.
+         if (data) {
+           alert("You have successfully registered. Please login.")
+          this.router.navigate(['']);
+         }
        }
      )
     

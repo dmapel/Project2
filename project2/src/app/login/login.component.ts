@@ -39,12 +39,12 @@ export class LoginComponent implements OnInit {
   // First get the user's id token from cognito
   this.cognitoService.signIn(this.username, this.password).subscribe(
     result => {
-      if (result) {
+      if (result) { 
         this.userService.getUserByUsername(this.username, this.password).subscribe(
           user => {
             console.log(user);
             if (user) {
-              if (this.username === user.username)
+              if (this.username === user.username )
               console.log('Found in database.');
               
               //Set the current user.

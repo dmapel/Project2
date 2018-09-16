@@ -4,3 +4,8 @@ input {
 label {
     margin: 5px;
 }
+blockquote  {
+    font-family: 'Share Tech', sans-serif;
+    text-align: center;
+    margin-left: 40px;
+  }
