@@ -1,3 +1,4 @@
+import { NewPage } from './../models/new-page';
 import { Page } from './../models/page';
 import { NewPageService } from './../service/new-page.service';
 import { HttpClient } from '@angular/common/http';
@@ -22,11 +23,19 @@ export class CreatePageComponent implements OnInit {
   title: string;
   body: string;
   summary: string;
-  page: Page
+  page: NewPage;
+  selectedFile: File;
   constructor(private http: HttpClient, private router: Router,
     private pageService: NewPageService, private userService: UserService
   ) { }
   ngOnInit() {
+  }
+//Get the image upload.
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+  onUpload() {
+    console.log(this.selectedFile)
   }
 
   storePage() {

@@ -12,7 +12,7 @@ import { UserService } from '../service/user.service';
 export class ViewUsersComponent implements OnInit {
   user: User[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(private adminService : AdminService, private userService : UserService) { }
+  constructor(private adminService: AdminService, private userService: UserService) { }
 
   ngOnInit() {
     this.adminService.getAllUsers().subscribe(
@@ -23,15 +23,16 @@ export class ViewUsersComponent implements OnInit {
     )
   }
 
-  promote (positionId) {
+  promote(positionId) {
     const data = {
       uId: positionId,
       posId: 1,
     }
-    this.userService.updateInfo(positionId).subscribe(stat => {
+    // Changed method to promote user.
+    this.userService.promoteUser(positionId).subscribe(stat => {
       alert('Promoted to admin')
     });
-    
+
   }
 
 }

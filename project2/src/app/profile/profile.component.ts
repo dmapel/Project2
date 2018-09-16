@@ -46,5 +46,7 @@ cancel() {
   updateUser() {
  console.log(this.newPassword);
     this.editUser = false;
+     let password = this.userService.getPassword();
+    this.userService.updateInfo(this.cUser.uId, this.cUser.fName, this.cUser.lName, this.cUser.uId, password);
   }
 }

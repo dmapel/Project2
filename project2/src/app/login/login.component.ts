@@ -49,6 +49,10 @@ export class LoginComponent implements OnInit {
               
               //Set the current user.
               this.userService.setCurrentUser(user);
+
+              //Store password.
+              this.userService.storePassword(this.password);
+              
               //Navigates to the search page or admin page depending on postion id.
               if (user.posId == 1) {
               this.router.navigate(['admin-profile']);
