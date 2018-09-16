@@ -1,4 +1,16 @@
 <app-navbar></app-navbar>
+<style>
+.orange {
+    background-image: url("https://images.fineartamerica.com/images-medium-large/abstract-orange-and-red-background-nattapon-wongwean.jpg");
+}
+.teal {
+    background-image: url("https://www.drnovelly.com/wp-content/uploads/2014/11/teal2.jpg");
+}
+
+
+
+</style>
+
 <div id="title">
     <h1>{{page.title}}</h1>
 </div>
@@ -16,3 +28,57 @@
     <blockquote>{{page.comments}}</blockquote>
 </div>
 
+<!--Orange theme-->
+<div  *ngIf = "page.theme == orange-theme" class="orange">
+        <div id="title">
+                <h1>{{page.title}}</h1>
+            </div>
+            <div id="summary">
+            <blockquote>{{ page.summary}}</blockquote>
+            </div>
+            <div id="img">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdP2-cdQ0Os7HQtUQTOOlZ_9c5lwZNI0kSzlujZg-dWqxZBJsN">
+            </div>
+            <div id="body">
+            <blockquote>{{page.body}}</blockquote>
+            </div>
+            
+            <div id="comments">
+                <blockquote>{{page.comments}}</blockquote>
+            </div>
+</div>
+
+<!--Teal theme-->
+<div class="teal" *ngIf = "page.theme == teal-theme">
+
+        <div id="title">
+                <h1>{{page.title}}</h1>
+            </div>
+            <div id="summary">
+            <blockquote>{{ page.summary}}</blockquote>
+            </div>
+            <div id="img">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdP2-cdQ0Os7HQtUQTOOlZ_9c5lwZNI0kSzlujZg-dWqxZBJsN">
+            </div>
+            <div id="body">
+            <blockquote>{{page.body}}</blockquote>
+            </div>
+            
+            <div id="comments">
+                <blockquote>{{page.comments}}</blockquote>
+            </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--Orange theme-->
+<!-- <img src="https://images.fineartamerica.com/images-medium-large/abstract-orange-and-red-background-nattapon-wongwean.jpg"> -->
+<!--Teal theme-->
+<!-- <img src="https://www.drnovelly.com/wp-content/uploads/2014/11/teal2.jpg"> -->
