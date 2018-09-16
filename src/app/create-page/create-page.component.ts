@@ -23,6 +23,7 @@ export class CreatePageComponent implements OnInit {
   title: string;
   body: string;
   summary: string;
+  pageId: number;
   page: NewPage;
   selectedFile: File;
   constructor(private http: HttpClient, private router: Router,

@@ -17,13 +17,19 @@ export class ViewPagesComponent implements OnInit {
   constructor(private userService: UserService, private adminService : AdminService) { }
 
   ngOnInit() {
-    this.adminService.getAllPages().subscribe(
-      (data: any) => {
-        console.log(data);
-        this.page = data;
-  }
+  //   this.adminService.getAllPages().subscribe(
+  //     (data: any) => {
+  //       console.log(data);
+  //       this.page = data;
+  // }
 
-    )
+  //   )
+
+  this.adminService.getAllPages().subscribe(
+    (data: any) => {
+      console.log(data);
+    }
+  )
   }
 
 }

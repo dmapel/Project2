@@ -1,8 +1,10 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NewPageService } from './../service/new-page.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { User } from '../models/user';
+import { Page } from '../models/page';
+import { AdminService } from '../service/admin.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,8 +18,10 @@ export class ProfileComponent implements OnInit {
   cUser: User;
   currentPassword: string;
   newPassword: string;
+  userId;
+  page: Page [];
 
-  constructor(private userService: UserService, private pageService: NewPageService, private router: Router) { }
+  constructor(private userService: UserService, private pageService: NewPageService, private router: Router, private adminService: AdminService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.cUser = this.userService.getCurrentUser();
@@ -30,9 +34,19 @@ export class ProfileComponent implements OnInit {
    if (!this.cUser) {
      this.router.navigate(['']);
    }
-  }
+   this.adminService.getAllPages().subscribe(
+    (data: any) => {
+      console.log(data);
+      this.page = data;
 
-
+      for(let i = 0; i < this.page.length; i++){
+        console.log(this.page[i]);
+        if(this.page[i].creatorId == this.cUser.uId && this.page[i].pageStatusId == 1) {
+          this.page.push(this.page[i]);
+        }
+      }
+  })
+}
 
 
   open() {

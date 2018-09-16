@@ -25,15 +25,14 @@ button {
     margin-top: 10px;
 }
 
-canvas {
-    width: 200px; 
-    height: 200px;
-    border: 1px solid #000000;
-    margin-left: 1%;
-    background-color: #f5f5f5;
-    
-}
 
 .squares {
     display: inline-block;
+    border: 2px solid black; 
+    width: 195px; 
+    height: 195px; 
+    text-align: center; 
+    margin: 1%;
+    background-color: #f5f5f5;
+
 }

@@ -5,7 +5,10 @@
   <div class="example-container">
     <h2>Create an account:</h2>
     <mat-form-field style="width:100%;">
-      <input matInput placeholder="Enter your first name" [(ngModel)] = "name"> 
+      <input matInput placeholder="Enter your first name" [(ngModel)] = "fName"> 
+    </mat-form-field>
+    <mat-form-field style="width:100%;">
+      <input matInput placeholder="Enter your last name" [(ngModel)] = "lName"> 
     </mat-form-field>
     <mat-form-field style="width:100%;">
       <input matInput placeholder="Enter your email" [(ngModel)] = "email">
@@ -22,7 +25,7 @@
       <input matInput placeholder="Confirm your password" [(ngModel)] = "cPassword">
     </mat-form-field>
     <div class="button-row">
-      <button mat-raised-button color="warn">Register</button>
+      <button mat-raised-button color="warn" (click) = "registerUser()">Register</button>
     </div>
     <label>Already a user? Login <a routerLink="">here</a>!</label>
   </div>
