@@ -1,5 +1,4 @@
-import { NewPage } from './../models/new-page';
-import { Page } from './../models/page';
+import { Page } from '../models/page';
 import { NewPageService } from './../service/new-page.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
