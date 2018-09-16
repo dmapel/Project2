@@ -15,6 +15,16 @@ export class ProfileComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.canvas();
+  }
+
+  canvas () {
+    var canvas : any = document.getElementById("myCanvas");
+    var ctx = <CanvasRenderingContext2D> canvas.getContext("2d");
+    ctx.font = "30px Comic Sans MS";
+    ctx.fillStyle = "red";
+    ctx.textAlign = "center";
+    ctx.fillText("{{}}", canvas.width/2, canvas.height/2); 
   }
 
   updateUser() {
