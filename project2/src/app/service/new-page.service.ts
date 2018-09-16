@@ -40,7 +40,12 @@ export class NewPageService {
 
   //Method to update a page.
   updatePage(creatorId : number, title: string, summary: string, body: string) {
-    return this.http.post<Page>(environment.apiUrl + '/edit/page' ,{creatorId, title, summary, body});
+    return this.http.put<Page>(environment.apiUrl + '/edit/page' ,{creatorId, title, summary, body});
+  }
+
+  //Get all pages for a certain user.
+  getUserPages(pageId : number) {
+    return this.http.get<Page[]>(environment.apiUrl + `/page/${pageId}`);
   }
 
 }

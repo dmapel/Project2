@@ -36,7 +36,7 @@ export class UserService {
     return this.http.post<User>(environment.apiUrl + 'create/user', {fName, lName, username, password});
   }
   //Updates the user info.
-  updateInfo(fName, lName, username, password, uId): Observable<User> {
+  updateInfo(uId: number, fName: string, lName: string, username: string, password: string){
     console.log('[LOG] - In UserService.updateInfo()');
     return this.http.put<User>(environment.apiUrl + 'update/user', { fName, lName, username, password, uId });
   }

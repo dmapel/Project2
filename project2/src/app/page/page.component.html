@@ -26,15 +26,15 @@
                 <div class="modal-body">
                     <label>Enter Title</label>
                     <br>
-                   <input type="text">
+                   <input type="text" [(ngModel)] = "newTitle">
                    <br>
                    <label>Enter Summary</label>
                    <br>
-                   <input type="text">
+                   <input type="text" [(ngModel)] = "newSummary" >
                    <br>
                    <label>Enter Body</label>
                    <br>
-                   <input type="text">
+                   <input type="text" [(ngModel)] = "newBody">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

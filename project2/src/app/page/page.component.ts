@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page.component.css']
 })
 export class PageComponent implements OnInit {
+
+  newTitle :string;
+  newSummary: string;
+  newBody: string;
   constructor(private pageService: NewPageService, private userService: UserService) { }
 
   ngOnInit() {
@@ -28,7 +32,7 @@ export class PageComponent implements OnInit {
 
   //Allows user to update the page.
   updatePage() {
-    this.pageService.updatePage(this.cUser.uId, this.page.title, this.page.summary, this.page.body).subscribe(
+    this.pageService.updatePage(this.cUser.uId, this.newTitle, this.newSummary, this.newBody).subscribe(
       data => {
         console.log(data);
       }
