@@ -5,10 +5,9 @@
 export const environment = {
   production: false,
   envName: `dev`,
-  context: `http://localhost:4200`,
-  apiUrl: 'http://ec2-18-188-229-73.us-east-2.compute.amazonaws.com:8080/'
-};
-
+  apiUrl: 'http://ec2-18-188-229-73.us-east-2.compute.amazonaws.com:8080/',
+  context: `http://localhost:4200/swagger-ui.html`
+}
 /*
  * In development mode, for easier debugging, you can ignore zone related error
  * stack frames such as `zone.run`/`zoneDelegate.invokeTask` by importing the

@@ -1,4 +1,21 @@
-<p>
-  view-pages works!
-</p>
-<button (click) = "getAllPages()">TEST</button>
+<app-admin-navbar></app-admin-navbar>
+<div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Tags</th>
+      <th scope="col">Time Submitted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of page">
+      <th scope="row">{{p.pageId}}</th>
+      <td>{{p.title}}</td>
+      <td>{{p.tags}}</td>
+      <td>{{p.timeSubmission}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

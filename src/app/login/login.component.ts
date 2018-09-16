@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   }
   
  //Attempt to sign in a user.
+  //Attempt to sign in a user.
  login() {
   console.log(this.username);
   console.log(this.password);
@@ -39,34 +40,41 @@ export class LoginComponent implements OnInit {
   this.cognitoService.signIn(this.username, this.password).subscribe(
     result => {
       if (result) {
+        this.userService.getUserByUsername(this.username, this.password).subscribe(
+          user => {
+            console.log(user);
+            if (user) {
+              if (this.username === user.username)
+              console.log('Found in database.');
+              
+              //Set the current user.
+              this.userService.setCurrentUser(user);
+
+              //Store password.
+              this.userService.storePassword(this.password);
+              
+              //Navigates to the search page or admin page depending on postion id.
+              if (user.posId == 1) {
+              this.router.navigate(['admin-profile']);
+              }else {
+              this.router.navigate(['search-bar']);
+              }
+            }
+            else {
+              console.log("User not found in database.");
+            }
+          }
+        )
         // If there was an error
         if (result['message']) {
           this.errorMessage = 'Invalid credentials';
-          this.display="Username or password not valid. Please try again.";
+          alert("Username or password not valid. Please try again.");
           return;
         }
       }
     })
 
-    this.userService.getUserByUsername(this.username, this.password).subscribe(
-      user => {
-        console.log(user);
-        if (user) {
-          if (this.username === user.username)
-          console.log('Hits');
-          sessionStorage.setItem('user', JSON.stringify(user));
-          this.userService.user.next(user);
-          if (user.posId==2){
-            this.router.navigate(['search-bar'])
-          } else {
-            this.router.navigate(['admin-profile'])
-          }
-        }
-        else {
-          console.log("User not found in database.");
-        }
-      }
-    )
+   
 
 
 

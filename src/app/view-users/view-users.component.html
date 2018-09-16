@@ -1,36 +1,32 @@
 <app-admin-navbar></app-admin-navbar>
-<table mat-table
-       [dataSource]="dataSource" multiTemplateDataRows
-       class="mat-elevation-z8">
-  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
-  </ng-container>
-
-  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-  <ng-container matColumnDef="expandedDetail">
-    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
-      <div class="example-element-detail"
-           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-        <div class="example-element-diagram">
-          <div class="example-element-position"> {{element.position}} </div>
-          <div class="example-element-symbol"> {{element.symbol}} </div>
-          <div class="example-element-name"> {{element.name}} </div>
-          <div class="example-element-weight"> {{element.weight}} </div>
-        </div>
-        <div class="example-element-description">
-          {{element.description}}
-          <span class="example-element-description-attribution"> -- Wikipedia </span>
-        </div>
-      </div>
+<div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Firstname:</th>
+      <th scope="col">Lastname:</th>
+      <th scope="col">Username:</th>
+      <th scope="col">Position:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of user">
+      <th scope="row">{{u.uId}}</th>
+      <td>{{u.fName}}</td>
+      <td>{{u.lName}}</td>
+      <td>{{u.username}}</td>
+      <td><span *ngIf = "u.posId == 1">Admin</span>
+         <span *ngIf = "u.posId == 2">User</span>
     </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
-      class="example-element-row"
-      [class.example-expanded-row]="expandedElement === element"
-      (click)="expandedElement = element">
-  </tr>
-  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    <td>
+        <span *ngIf = "u.posId == 2"><button type="button" class="btn btn-dark" (click) = "promote(u.uId)">Promote to Admin</button></span>
+    </td>
+    </tr>
+  </tbody>
 </table>
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]" id="pagin">
+</mat-paginator>
+</div>
