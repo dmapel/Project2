@@ -2,7 +2,6 @@ version: 0.1
 phases:
     install:
         commands:
-            - cd ./project2
             - echo Installing source NPM dependencies...
             - npm install
             - npm install -g @angular/cli
@@ -12,7 +11,7 @@ phases:
             - ng build --prod
     post_build:
          commands:
-            - aws s3 sync --delete project2 s3://codepipeline-us-east-2-593433248581
+            - aws s3 sync --delete dist/project2 s3://codepipeline-us-east-2-593433248581
 artifacts:
     files:
         - '**/*'
