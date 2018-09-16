@@ -87,7 +87,8 @@ import {
     MatSelectModule,
     HttpClientModule,
     FormsModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

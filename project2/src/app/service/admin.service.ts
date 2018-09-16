@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Page } from '../models/page';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,11 @@ page : Page
 
 //Gets all pages.
 getAllPages() {
-  return this.http.get<Page>(environment.apiUrl + '/get/allpages');
+ return this.http.get<Page[]>(environment.apiUrl + '/get/allpages');
+}
+
+getAllUsers() {
+ return this.http.get<User>(environment.apiUrl + '/get/allusers');
 }
 
 

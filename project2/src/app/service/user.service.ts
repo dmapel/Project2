@@ -6,13 +6,13 @@ import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 
 const HTTP_OPTIONS = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
+ headers: new HttpHeaders({
+   'Content-Type': 'application/json'
+ })
 };
 
 @Injectable({
-  providedIn: 'root'
+ providedIn: 'root'
 })
 export class UserService {
 
