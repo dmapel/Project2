@@ -41,7 +41,7 @@ export class ProfileComponent implements OnInit {
 
       for(let i = 0; i < this.page.length; i++){
         console.log(this.page[i]);
-        if(this.page[i].createdById == this.cUser.uId && this.page[i].pageStatusId == 1) {
+        if(this.page[i].creatorId == this.cUser.uId && this.page[i].pageStatusId == 1) {
           this.page.push(this.page[i]);
         }
       }
@@ -60,5 +60,7 @@ cancel() {
   updateUser() {
  console.log(this.newPassword);
     this.editUser = false;
+     let password = this.userService.getPassword();
+    this.userService.updateInfo(this.cUser.uId, this.cUser.fName, this.cUser.lName, this.cUser.uId, password);
   }
 }

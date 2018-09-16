@@ -39,8 +39,8 @@ export class NewPageService {
   }
 
   //Method to update a page.
-  updatePage() {
-
+  updatePage(creatorId : number, title: string, summary: string, body: string) {
+    return this.http.post<Page>(environment.apiUrl + '/edit/page' ,{creatorId, title, summary, body});
   }
 
 }

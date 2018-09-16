@@ -1,3 +1,4 @@
+import { NewPage } from './../models/new-page';
 import { Page } from './../models/page';
 import { NewPageService } from './../service/new-page.service';
 import { HttpClient } from '@angular/common/http';
@@ -22,12 +23,20 @@ export class CreatePageComponent implements OnInit {
   title: string;
   body: string;
   summary: string;
-  page: Page;
   pageId: number;
+  page: NewPage;
+  selectedFile: File;
   constructor(private http: HttpClient, private router: Router,
     private pageService: NewPageService, private userService: UserService
   ) { }
   ngOnInit() {
+  }
+//Get the image upload.
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+  onUpload() {
+    console.log(this.selectedFile)
   }
 
   storePage() {
@@ -40,14 +49,13 @@ export class CreatePageComponent implements OnInit {
   }
     //Create a new page from user input.
     this.page = {
-      createdById: current.uId,
+      creatorId: current.uId,
       title: this.title,
       summary: this.summary,
-      body: this.body,
-      pageId: this.pageId
+      body: this.body
     }
     //Insert new page in database.
-    this.pageService.createNewPage(this.page.createdById, this.page.title, this.page.summary, this.page.body).subscribe(
+    this.pageService.createNewPage(this.page.creatorId, this.page.title, this.page.summary, this.page.body).subscribe(
       data => {
         console.log(data);
       }
@@ -55,8 +63,10 @@ export class CreatePageComponent implements OnInit {
 
     //Set the new page as the current page.
     this.pageService.setPage(this.page);
+
     //Test to get the current page.
     console.log(this.pageService.getCurrentPage());
+    
     //Calls the method to set the current page's theme.
     this.getSelectedValue()
   }
