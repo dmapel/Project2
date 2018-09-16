@@ -22,7 +22,8 @@ export class CreatePageComponent implements OnInit {
   title: string;
   body: string;
   summary: string;
-  page: Page
+  page: Page;
+  pageId: number;
   constructor(private http: HttpClient, private router: Router,
     private pageService: NewPageService, private userService: UserService
   ) { }
@@ -39,13 +40,14 @@ export class CreatePageComponent implements OnInit {
   }
     //Create a new page from user input.
     this.page = {
-      creatorId: current.uId,
+      createdById: current.uId,
       title: this.title,
       summary: this.summary,
-      body: this.body
+      body: this.body,
+      pageId: this.pageId
     }
     //Insert new page in database.
-    this.pageService.createNewPage(this.page.creatorId, this.page.title, this.page.summary, this.page.body).subscribe(
+    this.pageService.createNewPage(this.page.createdById, this.page.title, this.page.summary, this.page.body).subscribe(
       data => {
         console.log(data);
       }
