@@ -49,5 +49,5 @@
 <div style="background-color: orangered" class="section">
   <h2 style="background-color: #343a40; color: #f5f5f5;">Pages Created</h2>
   <!-- <span><canvas id ="myCanvas"></canvas></span> -->
-  <div class="squares" *ngFor = "let p of page"><h4>{{p.title}}</h4></div>
+  <a routerLink="/page" style="color: black;"><div class="squares" *ngFor = "let p of page"><h4>{{p.title}}</h4></div></a>
 </div>
