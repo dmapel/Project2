@@ -53,8 +53,10 @@ export class CreatePageComponent implements OnInit {
 
     //Set the new page as the current page.
     this.pageService.setPage(this.page);
+
     //Test to get the current page.
     console.log(this.pageService.getCurrentPage());
+    
     //Calls the method to set the current page's theme.
     this.getSelectedValue()
   }

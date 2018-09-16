@@ -6,20 +6,20 @@ import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 
 const HTTP_OPTIONS = {
- headers: new HttpHeaders({
-   'Content-Type': 'application/json'
- })
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
 };
 
 @Injectable({
- providedIn: 'root'
+  providedIn: 'root'
 })
 export class UserService {
 
   user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
   static currentUser: User;
 
-  constructor(private http: HttpClient, private router : Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
   //Gets the user information by the username and password. 
   getUserByUsername(username: string, password: string) {
     console.log('[LOG] - In UserService.getUserByUsername()');
@@ -33,10 +33,10 @@ export class UserService {
     console.log('[LOG] - In UserService.register()');
     return this.http.post<User>(environment.apiUrl + 'user', JSON.stringify(user), HTTP_OPTIONS);
   }
-
-  updateInfo(user: User): Observable<User> {
+  //Updates the user info.
+  updateInfo(fName, lName, username, password, uId): Observable<User> {
     console.log('[LOG] - In UserService.updateInfo()');
-    return this.http.put<User>(environment.apiUrl + `users/${user.uId}`, JSON.stringify(user), HTTP_OPTIONS);
+    return this.http.put<User>(environment.apiUrl + 'update/user', { fName, lName, username, password, posId, uId });
   }
 
   //Sets the current user.
