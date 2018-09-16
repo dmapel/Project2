@@ -1,0 +1,38 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto; 
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  #size {
+    width: 100%;
+    /* margin-left: 510px;
+    margin-top: 135px; 
+    margin-bottom: -29px;  */
+  }
+
+  .background {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+label {
+  margin-left: 205px;
+}
+
+button {
+  margin-left: 250px;
+}
+h2 {
+  font-family: 'Share Tech', sans-serif;
+  text-align: center;
+  margin-left: 40px;
+}

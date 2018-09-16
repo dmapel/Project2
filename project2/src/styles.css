@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body{
+/* background-color: rgb(241, 235, 227); */
+/* background-image: url('https://previews.123rf.com/images/vska/vska1606/vska160600076/58664052-abstract-digital-web-site-header-banner-technology-background.jpg');
+ */
+background-image: url('assets/pics/tosined.png');
+background-size: 100% 125%;
+background-repeat: no-repeat;
+
+}
+
+
+
