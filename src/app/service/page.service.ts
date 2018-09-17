@@ -13,7 +13,7 @@ tags : Tag[];
 
 //Gets all tags.
 getAllTags() {
-  return this.http.get<Tag[]>(environment.apiUrl + '/getall/tags');
+  return this.http.get(environment.apiUrl + '/getall/tags');
 }
 
 filter(tagId : number) {

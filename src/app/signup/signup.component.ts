@@ -31,6 +31,13 @@ export class SignupComponent implements OnInit {
      this.cognito.registerUser(this.username, this.password, this.email,).subscribe(
        data => {
          console.log(data);
+          console.log("Trying to add to database.");
+
+         this.userService.register(this.fName, this.lName, this.username,this.password).subscribe(
+           info => {
+             console.log(info)
+           }
+         )
         //Pass to database.
          if (data) {
            alert("You have successfully registered. Please login.")

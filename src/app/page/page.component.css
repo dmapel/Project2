@@ -9,6 +9,11 @@ label {
 
 h1 {
     font-family: 'Share Tech', sans-serif;
-    font-size: 30px;
+    font-size: 60px;
     text-align: center;
+}
+blockquote {
+    font-family: 'Share Tech', sans-serif;
+    text-align: center;
+    font-size: 35px;
 }

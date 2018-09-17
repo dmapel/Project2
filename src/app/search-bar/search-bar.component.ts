@@ -30,7 +30,9 @@ page : Page[];
     this.pagService.getAllTags().subscribe(
       data => {
         console.log(data);
-        this.tags = data;
+        //this.tags = data;
+       let info = (JSON.stringify(data.valueOf()));
+        console.log(info);
       }
     )
   }

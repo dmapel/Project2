@@ -1,40 +1,5 @@
 <app-navbar></app-navbar>
-<div id="edit">
-    <!--Button to open modal. -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Edit Page
-    </button>
-    <!--Modal-->
-    <div  #mod id="mod" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit the Page</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <label>Enter Title</label>
-                    <br>
-                   <input type="text" [(ngModel)] = "newTitle">
-                   <br>
-                   <label>Enter Summary</label>
-                   <br>
-                   <input type="text" [(ngModel)] = "newSummary" >
-                   <br>
-                   <label>Enter Body</label>
-                   <br>
-                   <input type="text" [(ngModel)] = "newBody">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" (click) = "updatePage()">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <div id="title">
     <h1>{{page.title}}</h1>
 </div>
@@ -46,7 +11,43 @@
 </div>
 
 <div id="comments">
-    <blockquote>{{page.comments}}</blockquote>
+    <p>{{page.comments}}</p>
 </div>
+<div id="edit">
+        <!--Button to open modal. -->
+        <button type="button" mat-raised-button color="warn" data-toggle="modal" data-target="#exampleModal">
+            Edit Page
+        </button>
+        <!--Modal-->
+        <div  #mod id="mod" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit the Page</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <label>Enter Title</label>
+                        <br>
+                       <input type="text" [(ngModel)] = "newTitle">
+                       <br>
+                       <label>Enter Summary</label>
+                       <br>
+                       <input type="text" [(ngModel)] = "newSummary" >
+                       <br>
+                       <label>Enter Body</label>
+                       <br>
+                       <input type="text" [(ngModel)] = "newBody">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" (click) = "updatePage()">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <

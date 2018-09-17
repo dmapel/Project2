@@ -33,7 +33,7 @@ export class UserService {
   //Allows a user to sign themeselves up.
   register(fName: string, lName: string, username: string, password: string){
     console.log('[LOG] - In UserService.register()');
-    return this.http.post<User>(environment.apiUrl + 'create/user', {fName, lName, username, password});
+    return this.http.put(environment.apiUrl + 'create/user', {fName, lName, username, password});
   }
   //Updates the user info.
   updateInfo(uId: number, fName: string, lName: string, username: string, password: string, posId: number){
