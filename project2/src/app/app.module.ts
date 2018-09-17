@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -18,7 +18,6 @@ import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { ViewUsersComponent } from './view-users/view-users.component';
 import { ViewPagesComponent } from './view-pages/view-pages.component';
 import {
-  MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
   MatButtonModule,
@@ -54,8 +53,10 @@ import {
   MatTooltipModule,
   MatTreeModule,
   MatFormFieldModule,
-  MatOptionModule
+  MatOptionModule,
+
 } from '@angular/material';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,10 @@ import {
     HttpClientModule,
     FormsModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

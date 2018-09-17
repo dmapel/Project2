@@ -36,9 +36,9 @@ export class UserService {
     return this.http.post<User>(environment.apiUrl + 'create/user', {fName, lName, username, password});
   }
   //Updates the user info.
-  updateInfo(uId: number, fName: string, lName: string, username: string, password: string){
+  updateInfo(uId: number, fName: string, lName: string, username: string, password: string, posId: number){
     console.log('[LOG] - In UserService.updateInfo()');
-    return this.http.put<User>(environment.apiUrl + 'update/user', { fName, lName, username, password, uId });
+    return this.http.put<User>(environment.apiUrl + 'update/user', { uId, fName, lName, username, password, posId });
   }
 
   //Updates the user to an admin.

@@ -21,8 +21,13 @@
         <mat-toolbar-row>
           <h3>Username:</h3>
         </mat-toolbar-row>
-        <mat-toolbar-row>
+        <mat-toolbar-row *ngIf = "!editUser">
           <h4>{{cUser.username}}</h4>
+        </mat-toolbar-row>
+      <mat-toolbar-row>
+        <mat-form-field class="example-full-width">
+            <input matInput [(ngModel)]="newUsername" placeholder="Change Username" maxlength="30">
+          </mat-form-field>
         </mat-toolbar-row>
         <mat-toolbar-row>
           <h3>Password:</h3>
@@ -39,7 +44,7 @@
             <input matInput [(ngModel)]="newPassword" placeholder="Change Password" maxlength="30">
           </mat-form-field>
         <span style="flex: 1 1 auto"></span>
-        <button type="button" (click)="save()">Save</button>
+        <button type="button" (click)="updateUser()">Save</button>
         <mat-icon style="width:100px; margin-left: 20px; margin-top: 10px; cursor: pointer;" (click) = "cancel()">cancel</mat-icon>
       </mat-toolbar-row>
       </mat-toolbar>

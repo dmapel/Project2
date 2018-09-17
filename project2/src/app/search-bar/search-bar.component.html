@@ -8,7 +8,14 @@
   </span>
 </mat-toolbar>
 <img src= "{{img}}" id = "size">
-<input type="text" placeholder="search topic..." style="width: 568px; margin-left: 404px;">
-<div class="button-row">
-  <button mat-raised-button color="warn" style="margin-top: 40px; margin-left: 700px;">Search</button>
+
+
+<!-- <ul id="tags" *ngFor="let t of tags">
+ <li>{{ t.tagName }}</li>>
+</ul> -->
+
+<div *ngFor = "let t of tags">
+<mat-checkbox> {{ t.tagName }}</mat-checkbox>
 </div>
+ 
+

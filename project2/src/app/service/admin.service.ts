@@ -16,7 +16,7 @@ getAllPages() {
  return this.http.get<Page[]>(environment.apiUrl + '/get/allpages');
 }
 getSinglePages() {
- return this.http.get<Page[]>(environment.apiUrl + '/page/{pageId}');
+ return this.http.get<Page[]>(environment.apiUrl + '/user/pages/{userId}');
 }
 
 getAllUsers() {

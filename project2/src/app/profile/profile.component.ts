@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   user: User;
   cUser: User;
   currentPassword: string;
+  newUsername : string;
   newPassword: string;
   userId;
   page: Page [];
@@ -26,10 +27,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.cUser = this.userService.getCurrentUser();
     console.log(this.cUser);
-    //If there is no current user, it will take it back to the login page.
-   if (!this.cUser) {
-     this.router.navigate(['']);
-   }
+    console.log(this.userService.getPassword());
     //If there is no current user, it will take it back to the login page.
    if (!this.cUser) {
      this.router.navigate(['']);
@@ -57,10 +55,17 @@ cancel() {
   this.editUser = false;
 }
 
-  updateUser() {
+  updateUser(username: string, password: string) {
  console.log(this.newPassword);
     this.editUser = false;
-     let password = this.userService.getPassword();
-    this.userService.updateInfo(this.cUser.uId, this.cUser.fName, this.cUser.lName, this.cUser.uId, password);
+     console.log(this.newUsername);
+     console.log(this.newPassword);
+   
+    this.userService.updateInfo(this.cUser.uId, this.cUser.fName, this.cUser.lName,this.newUsername, this.newPassword, this.cUser.posId).subscribe(
+      data => {
+        let info = data;
+        console.log(info);
+      }
+    )
   }
 }

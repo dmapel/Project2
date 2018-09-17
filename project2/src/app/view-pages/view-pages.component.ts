@@ -27,7 +27,7 @@ export class ViewPagesComponent implements OnInit {
         //Set the updated page to the current page.
         this.pageService.setPage(this.page);
         //Render the updated page.
-        this.router.navigate(['page'])
+        this.router.navigate(['view-pages']);
       }
     }
   )
