@@ -1,6 +1,7 @@
 import { NewPageService } from './../service/new-page.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { UserService } from '../service/user.service';
 import { Page } from '../models/page';
 import { AdminService } from '../service/admin.service';
