@@ -91,7 +91,6 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatTableModule,
     MatPaginatorModule,
     MatAutocompleteModule,
-    ReactiveFormsModule,
     MatCheckboxModule
   ],
   providers: [],

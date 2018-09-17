@@ -3,7 +3,7 @@
 
 body{
 /* background-color: rgb(241, 235, 227); */
-background-image: url('assets/pics/tosined.png');
+background-image: url('/src/assets/pics/');
 background-size: 100% 120%;
 background: no-repeat;
 }

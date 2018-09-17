@@ -1,13 +1,4 @@
 <app-navbar></app-navbar>
-<style>
-    .orange {
-        background-image: url("https://images.fineartamerica.com/images-medium-large/abstract-orange-and-red-background-nattapon-wongwean.jpg");
-    }
-
-    .teal {
-        background-image: url("https://www.drnovelly.com/wp-content/uploads/2014/11/teal2.jpg");
-    }
-</style>
 <div id="edit">
     <!--Button to open modal. -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -38,7 +29,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" (click) = " updatePage()">Save changes</button>
+                    <button type="button" class="btn btn-primary" (click) = "updatePage()">Save changes</button>
                 </div>
             </div>
         </div>
@@ -49,9 +40,6 @@
 </div>
 <div id="summary">
     <blockquote>{{ page.summary}}</blockquote>
-</div>
-<div id="img">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdP2-cdQ0Os7HQtUQTOOlZ_9c5lwZNI0kSzlujZg-dWqxZBJsN">
 </div>
 <div id="body">
     <blockquote>{{page.body}}</blockquote>

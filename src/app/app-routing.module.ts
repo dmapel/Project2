@@ -26,7 +26,7 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'page/:id',
+    path: 'page',
     component: PageComponent
   },
   {

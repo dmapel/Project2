@@ -1,3 +1,4 @@
+import { NewPage } from './../models/new-page';
 import { Page } from './../models/page';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
@@ -40,7 +41,7 @@ export class NewPageService {
 
   //Method to update a page.
   updatePage(creatorId : number, title: string, summary: string, body: string) {
-    return this.http.put<Page>(environment.apiUrl + '/edit/page' ,{creatorId, title, summary, body});
+    return this.http.put<NewPage>(environment.apiUrl + '/edit/page' ,{creatorId, title, summary, body});
   }
 
   //Get all pages for a certain user.
