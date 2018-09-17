@@ -15,85 +15,21 @@
 
 <h3> Topics </h3>
 <div id="list">
-
-        <li>
-          AOP
-       </li>
-
-        <li>
-          Advanced
-       </li>
-
-        <li (click) = "getAwsPages()">
-          Amaon Web Services
-       </li>
-
-        <li>
-          Angular
-       </li>
-
-        <li>
-          CSS
-       </li>
-
-        <li>
-          HTML
-       </li>
-
-        <li>
-          HTTP
-       </li>
-
-        <li>
-          Hibrnate
-       </li>
-  
-        <li (click) = "getIntroPages()">
-          Intro
-       </li>
-
-        <li>
-          Java
-       </li>
-        <li>
-          Javascript
-       </li>
-        <li>
-          Maven
-       </li>
-        <li (click) = "getSqlPages()">
-          SQL
-       </li>
-        <li (click) = "getSqlCPages()">
-          SQLCommands
-       </li>
-        <li>
-          SQL SELECT statements
-       </li>
-        <li>
-          Servlet
-       </li>
-        <li>
-          Spring
-       </li>
-        <li>
-          Typescript
-       </li>
+       <div *ngFor ="let t of tags" (click)="getPages(t.tagId)">
+         <button>{{ t.tagName}}</button>
+       </div>
       
-      
-</div> -->
+</div> 
 
-<!-- <div> -->
-<!-- <ul *ngFor = "let p of page">
-<li> {{p.title }}</li>
-</ul>
-
-</div> --> -->
 
 <!-- <ul *ngFor = "let t of tags">
-<li>{{t.tagName}}</li>
-</ul>
+  <li>
+    {{t.tagId}}  {{t.tagName}}
+  </li>
+</ul> -->
 
-<p> 
-  {{info}}
-</p> -->
+
+
+
+
+

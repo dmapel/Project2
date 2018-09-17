@@ -9,15 +9,29 @@ import { Page } from '../models/page';
 })
 export class PageService {
 tags : Tag[];
+
+static filteredPages: Page[];
   constructor(private http : HttpClient ) { }
 
 //Gets all tags.
 getAllTags() {
-  return this.http.get(environment.apiUrl + '/getall/tags');
+  return this.http.get<Tag[]>(environment.apiUrl + '/getall/tags');
+}
+//Gets pages by tag id.
+filter(tagId : number) {
+  console.log("In Page Service filter().........")
+  return this.http.get(environment.apiUrl + `/filter/tags/${tagId}`);
 }
 
-filter(tagId : number) {
-  return this.http.get<Page[]>(environment.apiUrl + `/filter/tags/${tagId}`)
+//Sets filtered pages retrieved with the previous methkod (filter()).
+setFilteredPages(pages) {
+PageService.filteredPages = pages;
 }
+//Returns filtered pages retrieved with the previous methkod (filter()).
+getFilteredPages() {
+return PageService.filteredPages;
+}
+
+
 
 }
