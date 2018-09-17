@@ -62,15 +62,12 @@ export class LoginComponent implements OnInit {
             }
             else {
               console.log("User not found in database.");
+            } else {
+              // If there was an error
+              this.display="Username or password not valid. Please try again.";
             }
-          }
+          
         )
-        // If there was an error
-        if (result['message']) {
-          this.errorMessage = 'Invalid credentials';
-          alert("Username or password not valid. Please try again.");
-          return;
-        }
       }
     })
 
