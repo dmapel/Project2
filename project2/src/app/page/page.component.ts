@@ -1,6 +1,10 @@
 import { UserService } from './../service/user.service';
 import { NewPageService } from './../service/new-page.service';
 import { Component, OnInit } from '@angular/core';
+import { Page } from './../models/page';
+import { Router } from '@angular/router';
+import { AdminService } from '../service/admin.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-page',
@@ -8,7 +12,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page.component.css']
 })
 export class PageComponent implements OnInit {
-  constructor(private pageService: NewPageService, private userService: UserService) { }
+  pageId: number;
+  currentPage: Page;
+  constructor(private pageService: NewPageService, private userService: UserService, private route: ActivatedRoute, private adminService: AdminService) { }
 
   ngOnInit() {
     this.getTheme();
@@ -16,6 +22,8 @@ export class PageComponent implements OnInit {
     console.log(this.userService.getCurrentUser());
     console.log(this.pageService.getCurrentPage());
     console.log(this.userService.getPassword());
+    this.pageId = +this.route.snapshot.paramMap.get('id');
+    this.adminService.getPage(this.pageId).subscribe((r)=>{r = this.currentPage = r});
   }
    page = this.pageService.getCurrentPage();
    cUser = this.userService.getCurrentUser();

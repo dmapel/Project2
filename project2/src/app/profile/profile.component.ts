@@ -34,7 +34,7 @@ export class ProfileComponent implements OnInit {
    if (!this.cUser) {
      this.router.navigate(['']);
    }
-   this.adminService.getAllPages().subscribe(
+   this.adminService.getSinglePages(this.cUser.uId).subscribe(
     (data: any) => {
       console.log(data);
       this.page = data;
@@ -62,5 +62,9 @@ cancel() {
     this.editUser = false;
      let password = this.userService.getPassword();
     this.userService.updateInfo(this.cUser.uId, this.cUser.fName, this.cUser.lName, this.cUser.uId, password);
+  }
+
+  viewPages(pageId: Number){
+    this.router.navigate(['page/' + pageId])
   }
 }
