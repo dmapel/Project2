@@ -1,12 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-body{
+/* body{ */
 /* background-color: rgb(241, 235, 227); */
-background-image: url('/src/assets/pics/');
+/* background-image: url('/src/assets/pics/');
 background-size: 100% 120%;
-background: no-repeat;
-}
+background: no-repeat; */
+/* } */
 
+body {
+    width: 100%;
+    margin: 0%;
+    background-repeat: no-repeat;
+    background-size: 100% 130%;
+    background-image: url('https://files.slack.com/files-pri/TBCU1B4N5-FCVUF4938/tosined.png');
+}
 
 

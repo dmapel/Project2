@@ -19,8 +19,9 @@ export class PageComponent implements OnInit {
   newBody: string;
   pageId: number;
   currentPage: NewPage;
-  constructor( private pageService: NewPageService, private userService: UserService, private adminService: AdminService,
-    private router: Router) { }
+  constructor(private pageService: NewPageService, private userService: UserService, private adminService: AdminService,
+  private router: Router
+  ) { }
 
   ngOnInit() {
    
@@ -49,10 +50,14 @@ export class PageComponent implements OnInit {
 
         if (data) {
           this.pageService.setPage(this.currentPage);
-          console.log(this.currentPage);
-          console.log("here");
+         
           this.router.navigate(['page']);
+          alert("Your page was successfully updated.")
+          console.log(this.currentPage);
+         
+          
         }
+        
       }
     )
 

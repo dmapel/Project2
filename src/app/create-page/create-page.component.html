@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div id="container">
+
     <h1>Create New Page</h1>
     <div class="example-container">
         <mat-form-field>
@@ -13,17 +13,17 @@
           <textarea matInput placeholder="Body" [(ngModel)]="body"></textarea>
         </mat-form-field>
       
-        <mat-form-field>
+        <!-- <mat-form-field>
           <mat-select placeholder="Select a Theme" [(ngModel)]="selectedValue">
             <mat-option *ngFor="let o of options" [value]="o.name">
               {{o.label}}
             </mat-option>
           </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
         <div class="button-row">
             <button mat-raised-button color="warn" (click)="storePage()">
               Create Page
             </button>
           </div>
       </div>
-</div>
+

@@ -11,7 +11,7 @@ import { User } from '../models/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  img = 'assets/pics/revature-logo-600x219.png';
+  img = 'https://files.slack.com/files-pri/TBCU1B4N5-FCVM8QYG7/revature__.png';
   username: string;
 
   password: string;

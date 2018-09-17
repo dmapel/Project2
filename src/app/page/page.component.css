@@ -1,3 +1,14 @@
 #edit {
     text-align: center;
+    font-family: 'Share Tech', sans-serif;
+}
+label {
+    font-family: 'Share Tech', sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Share Tech', sans-serif;
+    font-size: 30px;
+    text-align: center;
 }

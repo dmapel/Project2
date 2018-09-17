@@ -1,7 +1,9 @@
+import { Page } from './../models/page';
 import { PageService } from './../service/page.service';
 import { UserService } from './../service/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Tag } from '../models/tag';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,17 +12,14 @@ import { Tag } from '../models/tag';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-  img = 'assets/pics/revature-logo-600x219.png';
+  img = 'https://files.slack.com/files-pri/TBCU1B4N5-FCVM8QYG7/revature__.png';
  input : string;
-  
-
-
- 
 
 tags : Tag[];
+page : Page[];
 
-
-  constructor(private userService: UserService, private pagService : PageService) {
+  constructor(private userService: UserService, private pagService : PageService, 
+  private router: Router) {
    
    }
 
@@ -36,15 +35,38 @@ tags : Tag[];
     )
   }
 
+  getIntroPages() {
+  console.log('Intro');
+  this.pagService.filter(8).subscribe(
+    data => {
+      console.log(data);
+      this.page = data;
+      
 
-  OnChange($event){
-    console.log($event); 
-    if ($event) {
-      console.log("it was hit")
     }
-    //MatCheckboxChange {checked,MatCheckbox}
-   
+  )
+ 
+  
 }
+getSqlPages() {
+  console.log('SQL');
+  this.pagService.filter(3);
+  this.router.navigate([''])
+  
+}
+getSqlCPages() {
+  console.log('SQL C');
+  this.pagService.filter(16);
+  this.router.navigate([''])
+}
+getAwsPages() {
+  console.log('AWS');
+  this.pagService.filter(11);
+  this.router.navigate([''])
+}
+
+
+
   userSelection(tagId: number) {
     this.pagService.filter(tagId).subscribe(
       data => {

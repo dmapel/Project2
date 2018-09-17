@@ -30,4 +30,5 @@ button {
 h5 {
   margin: auto 50px;
   color: orangered;
+  background-image: image('/src/assets/pics/tosined.png');
 }
