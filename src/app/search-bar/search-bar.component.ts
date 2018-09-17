@@ -11,10 +11,18 @@ import { Tag } from '../models/tag';
 })
 export class SearchBarComponent implements OnInit {
   img = 'assets/pics/revature-logo-600x219.png';
+ input : string;
+  
+
+
+ 
 
 tags : Tag[];
 
-  constructor(private userService: UserService, private pagService : PageService) { }
+
+  constructor(private userService: UserService, private pagService : PageService) {
+   
+   }
 
   ngOnInit() {
     let current = this.userService.getCurrentUser();
@@ -28,8 +36,21 @@ tags : Tag[];
     )
   }
 
-searchATag(tag: string) {
-  
+
+  OnChange($event){
+    console.log($event); 
+    if ($event) {
+      console.log("it was hit")
+    }
+    //MatCheckboxChange {checked,MatCheckbox}
+   
 }
+  userSelection(tagId: number) {
+    this.pagService.filter(tagId).subscribe(
+      data => {
+        console.log(data);
+      }
+    )
+  }
 
 }

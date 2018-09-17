@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Tag } from '../models/tag';
 import { environment } from '../../environments/environment';
+import { Page } from '../models/page';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,10 @@ tags : Tag[];
 //Gets all tags.
 getAllTags() {
   return this.http.get<Tag[]>(environment.apiUrl + '/getall/tags');
+}
+
+filter(tagId : number) {
+  return this.http.get<Page[]>(environment.apiUrl + `/filter/tags/${tagId}`)
 }
 
 }
