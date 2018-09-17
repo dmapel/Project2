@@ -24,24 +24,25 @@
         <mat-toolbar-row *ngIf = "!editUser">
           <h4>{{cUser.username}}</h4>
         </mat-toolbar-row>
-      <mat-toolbar-row>
-        <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="newUsername" placeholder="Change Username" maxlength="30">
+        <mat-toolbar-row *ngIf = "editUser">
+          <mat-form-field class="example-full-width">
+            <input matInput [(ngModel)]="newUsername" maxlength="30">
           </mat-form-field>
-        </mat-toolbar-row>
+        <span style="flex: 1 1 auto"></span>
+      </mat-toolbar-row>
         <mat-toolbar-row>
           <h3>Password:</h3>
         </mat-toolbar-row>
         <mat-toolbar-row *ngIf = "!editUser">
           <h4>123*******</h4>
           <span style="flex: 1 1 auto"></span>
-          <i class="material-icons" mat-raised-button matTooltip="Change Password" aria-label="Button that displays a tooltip when focused or hovered over" (click)="open()">
+          <i class="material-icons" mat-raised-button matTooltip="Change Password and Username" aria-label="Button that displays a tooltip when focused or hovered over" (click)="open()">
             border_color
             </i>
         </mat-toolbar-row>
         <mat-toolbar-row *ngIf = "editUser">
           <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="newPassword" placeholder="Change Password" maxlength="30">
+            <input matInput [(ngModel)]="newPassword" maxlength="30">
           </mat-form-field>
         <span style="flex: 1 1 auto"></span>
         <button type="button" (click)="updateUser()">Save</button>
@@ -51,8 +52,8 @@
     </span>
   </mat-toolbar>
 </div>
-<div style="background-color: orangered" class="section">
+<div style="background-color: orangered;" class="section">
   <h2 style="background-color: #343a40; color: #f5f5f5;">Pages Created</h2>
   <!-- <span><canvas id ="myCanvas"></canvas></span> -->
-  <a routerLink="/page" style="color: black;"><div class="squares" *ngFor = "let p of page"><h4>{{p.title}}</h4></div></a>
+  <div (click)="viewPages(p.pageId)" class="squares" *ngFor = "let p of page"><h4>{{p.title}}</h4></div>
 </div>

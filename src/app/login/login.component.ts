@@ -60,17 +60,11 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['search-bar']);
               }
             }
-            else {
-              console.log("User not found in database.");
+              // If there was an error
+              this.display="Username or password not valid. Please try again.";
             }
-          }
+          
         )
-        // If there was an error
-        if (result['message']) {
-          this.errorMessage = 'Invalid credentials';
-          alert("Username or password not valid. Please try again.");
-          return;
-        }
       }
     })
 

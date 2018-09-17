@@ -14,5 +14,5 @@
   <button mat-raised-button color="warn" (click) = "login()">Login</button>
 </div><br>
 <label>New user? Sign-up <a routerLink = "/signup">here</a>!</label>
-<h5>{{display}}</h5>
+<h5 *ngIf="!result">{{display}}</h5>
 </div>

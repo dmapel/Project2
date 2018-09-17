@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
    if (!this.cUser) {
      this.router.navigate(['']);
    }
-   this.adminService.getAllPages().subscribe(
+   this.adminService.getSinglePages(this.cUser.uId).subscribe(
     (data: any) => {
       console.log(data);
       this.page = data;
@@ -67,5 +67,9 @@ cancel() {
         console.log(info);
       }
     )
+  }
+
+  viewPages(pageId: Number){
+    this.router.navigate(['page/' + pageId])
   }
 }

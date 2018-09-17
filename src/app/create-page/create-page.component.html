@@ -22,7 +22,7 @@
         </mat-form-field>
         <input type="file" (change)="onFileChanged($event)"
         >
-        <button (click)="onUpload()">Upload!</button>
+        <button (click)="onUpload()" id="upload">Upload!</button>
         <!-- <p style="text-align: center;"> The theme is   {{selectedValue}}</p> -->
         <div class="button-row">
             <button mat-raised-button color="warn" (click)="storePage()">
