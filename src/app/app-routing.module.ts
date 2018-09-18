@@ -12,6 +12,7 @@ import { ViewUsersComponent } from './view-users/view-users.component';
 import { ViewPagesComponent } from './view-pages/view-pages.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { ViewPostComponent } from './view-post/view-post.component';
+import { AllPagesComponent } from './all-pages/all-pages.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'view--post',
     component: ViewPostComponent
+  },
+  {
+    path: 'all-pages',
+    component: AllPagesComponent
   }
 ];
 

@@ -44,7 +44,7 @@ export class UserService {
   //Updates the user to an admin.
   promoteUser(posId) {
     console.log('[LOG] - In UserService.promoteUser()');
-    return this.http.put<User>(environment.apiUrl + '/update/user', { posId });
+    return this.http.put<User>(environment.apiUrl + 'update/user', posId );
   }
 
   //Sets the current user.
