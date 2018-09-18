@@ -1,8 +1,8 @@
+import { Tag } from './../models/tag';
 import { Page } from './../models/page';
 import { PageService } from './../service/page.service';
 import { UserService } from './../service/user.service';
 import { Component, OnInit } from '@angular/core';
-import { Tag } from '../models/tag';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { AdminService } from '../service/admin.service';
@@ -15,28 +15,29 @@ import { AdminService } from '../service/admin.service';
 })
 export class SearchBarComponent implements OnInit {
   img = 'https://files.slack.com/files-pri/TBCU1B4N5-FCVM8QYG7/revature__.png';
- input : string;
- tags : Tag[];
-page : Page[];
-startAt = new Subject();
-endAt = new Subject();
-t:number;
+  input: string;
 
-  constructor(private userService: UserService, private pagService : PageService, 
-  private router: Router, private adminService: AdminService) {
-   
-   }
+  tags: Tag[];
+  page: Page[];
+  title: string;
+  t: number;
+
+  constructor(private userService: UserService, private pagService: PageService,
+    private router: Router) {
+
+  }
 
   ngOnInit() {
+    //Get the current logged in user..
     let current = this.userService.getCurrentUser();
     console.log(current);
 
+    //Call page service to get all tags.
     this.pagService.getAllTags().subscribe(
       data => {
         console.log(data);
-        //this.tags = data;
-       let info = (JSON.stringify(data.valueOf()));
-        console.log(info);
+        this.tags = data;
+        console.log(this.tags[2].tagId)
       }
     )
 
@@ -50,35 +51,22 @@ t:number;
     );
   }
 
-  getIntroPages() {
-  console.log('Intro');
-  this.pagService.filter(8).subscribe(
+  //Call page service to get paged for selected tag and then send to ViewPosts Component.
+getPages(id: number) {
+  console.log("Testing get pages....");
+  this.pagService.filter(id).subscribe(
     data => {
       console.log(data);
-      this.page = data;
-      
-
+      if (data) {
+        this.pagService.setFilteredPages(data);
+        if (data) {
+        this.router.navigate(['view--post']);
+        }
+      }
     }
   )
- 
-  
 }
-getSqlPages() {
-  console.log('SQL');
-  this.pagService.filter(3);
-  this.router.navigate([''])
-  
-}
-getSqlCPages() {
-  console.log('SQL C');
-  this.pagService.filter(16);
-  this.router.navigate([''])
-}
-getAwsPages() {
-  console.log('AWS');
-  this.pagService.filter(11);
-  this.router.navigate([''])
-}
+
 
 
 

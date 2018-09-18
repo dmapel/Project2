@@ -57,6 +57,8 @@ import {
 
 } from '@angular/material';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { GetPagesComponent } from './get-pages/get-pages.component';
+import { ViewPostComponent } from './view-post/view-post.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     AdminProfileComponent,
     AdminNavbarComponent,
     ViewUsersComponent,
-    ViewPagesComponent
+    ViewPagesComponent,
+    GetPagesComponent,
+    ViewPostComponent,
   ],
   imports: [
     BrowserModule,
