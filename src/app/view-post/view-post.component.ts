@@ -16,7 +16,7 @@ pages : Page[];
   ngOnInit() {
 //Call the page service to get the pages.
  this.pages = this.pageService.getFilteredPages();
-
+    
 
   }
 

@@ -1,4 +1,4 @@
-<!-- <mat-toolbar style="background-color: rgba(0,0,0,0)">
+ <mat-toolbar style="background-color: rgba(0,0,0,0)">
   <span>
     <button routerLink="/profile" mat-raised-button color="warn">Your Profile</button>
   </span>
@@ -10,29 +10,19 @@
 <img src= "{{img}}" id = "size">
 
 
-<input type="text" [(ngModel)]="t" placeholder="search topic..." style="width: 43%; margin-left: 29%;" (keydown)="search($event)">
+<!-- <input type="text" [(ngModel)]="t" placeholder="search topic..." style="width: 43%; margin-left: 29%;" (keydown)="search($event)"> -->
 
-<li *ngFor="let page of Page">
-<div >
-  <h4>{{p.title}}</h4>
-</div>
-</li> -->
  
 
 <h3> Topics </h3>
 <div id="list">
-       <div *ngFor ="let t of tags" (click)="getPages(t.tagId)">
+       <div *ngFor = "let t of tags" (click)="getPages(t.tagId)">
          <button>{{ t.tagName}}</button>
        </div>
       
 </div> 
 
 
-<!-- <ul *ngFor = "let t of tags">
-  <li>
-    {{t.tagId}}  {{t.tagName}}
-  </li>
-</ul> -
 
 
 
