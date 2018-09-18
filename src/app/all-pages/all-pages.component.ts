@@ -26,7 +26,7 @@ export class AllPagesComponent implements OnInit {
       this.page = data;
       if (this.page) {
         //Set the updated page to the current page.
-        this.pageService.setPage(this.page);
+        //this.pageService.setPage(this.page);
         //Render the updated page.
         this.router.navigate(['all-pages']);
       }
