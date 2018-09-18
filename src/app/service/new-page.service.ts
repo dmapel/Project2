@@ -12,7 +12,7 @@ export class NewPageService {
   //The page's elements.
   static theme: string;
   // Page.
-  static page: Page;
+  static page: NewPage;
   private createPage: CreatePageComponent;
 
   constructor(private http: HttpClient) { }
@@ -26,7 +26,7 @@ export class NewPageService {
     return NewPageService.theme;
   }
   // Method to store a page.
-  setPage(page) {
+  setPage(page: NewPage) {
     NewPageService.page = page;
   }
   //Method to get current page.
