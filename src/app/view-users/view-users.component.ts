@@ -23,13 +23,14 @@ export class ViewUsersComponent implements OnInit {
     )
   }
 
-  promote(positionId) {
+  promote(userId) {
+    console.log(userId);
     const data = {
-      uId: positionId,
+      uId: userId,
       posId: 1,
     }
     // Changed method to promote user.
-    this.userService.promoteUser(positionId).subscribe(stat => {
+    this.userService.promoteUser(data).subscribe(stat => {
       alert('Promoted to admin')
     });
 

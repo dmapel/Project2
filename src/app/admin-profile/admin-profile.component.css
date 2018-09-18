@@ -1,9 +1,6 @@
 #container {
     /* width: 100%; */
     height: 200%;
-    background: url('/assets/pics/tosined.png');
-    background-repeat: no-repeat;
-    background-size: 100% 150%;
 }
 #one {
     margin-top: 900px;
