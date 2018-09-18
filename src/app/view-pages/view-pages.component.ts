@@ -6,6 +6,7 @@ import { UserService } from '../service/user.service';
 import { Page } from '../models/page';
 import { AdminService } from '../service/admin.service';
 import { MatPaginator } from '@angular/material';
+import { NewPage } from '../models/new-page';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { MatPaginator } from '@angular/material';
   styleUrls: ['./view-pages.component.css']
 })
 export class ViewPagesComponent implements OnInit {
-  page: Page [];
+  page: NewPage [];
 
   constructor(private userService: UserService, private adminService : AdminService, private router : Router, private pageService : NewPageService) { }
 
@@ -26,7 +27,7 @@ export class ViewPagesComponent implements OnInit {
       this.page = data;
       if (this.page) {
         //Set the updated page to the current page.
-        this.pageService.setPage(this.page);
+        // this.pageService.setPage(this.page);
         //Render the updated page.
         this.router.navigate(['view-pages']);
       }

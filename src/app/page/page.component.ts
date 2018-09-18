@@ -7,6 +7,8 @@ import { Page } from './../models/page';
 import { AdminService } from '../service/admin.service';
 import {ActivatedRoute} from '@angular/router';
 
+
+
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
@@ -48,10 +50,14 @@ export class PageComponent implements OnInit {
           this.pageService.setPage(this.currentPage);
          
           this.router.navigate(['page']);
-          alert("Your page was successfully updated.")
-          console.log(this.currentPage);
+          
+          // alert("Your page was successfully updated.")
+          // console.log(this.currentPage);
          
           
+        }
+        else {
+          alert("Could not complete that action at this time.")
         }
         
       }
