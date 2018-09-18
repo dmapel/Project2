@@ -35,11 +35,7 @@ export class PageComponent implements OnInit {
    page = this.pageService.getCurrentPage();
    cUser = this.userService.getCurrentUser();
 
-  //Check for theme
-  // getTheme() {
-  //   console.log(this.pageService.getTheme());
-  //   console.log(this.cUser);
-  // }
+  
 
   //Allows user to update the page.
   updatePage() {

@@ -1,3 +1,5 @@
+import { NewPage } from './../models/new-page';
+import { PageService } from './../service/page.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NewPageService } from './../service/new-page.service';
 import { Component, OnInit } from '@angular/core';
@@ -21,8 +23,11 @@ export class ProfileComponent implements OnInit {
   newPassword: string;
   userId;
   page: Page [];
+  viewPage: any;
+  pp : NewPage;
 
-  constructor(private userService: UserService, private pageService: NewPageService, private router: Router, private adminService: AdminService, private activatedRoute: ActivatedRoute) { }
+
+  constructor(private userService: UserService, private pageService: NewPageService, private router: Router, private adminService: AdminService, private activatedRoute: ActivatedRoute, private pService : PageService) { }
 
   ngOnInit() {
     this.cUser = this.userService.getCurrentUser();
@@ -69,7 +74,34 @@ cancel() {
     )
   }
 
-  viewPages(pageId: Number){
-    this.router.navigate(['page/' + pageId])
+  //View pages by pageId
+  viewPages(pageId){
+   this.pService.getPageById(pageId).subscribe(
+     data => {
+       console.log(data);
+       this.pp = {
+         creatorId : this.cUser.uId,
+         title: data[0].title,
+         summary: data[0].summary,
+         body: data[0].body
+       }
+
+        console.log("testing" + this.pp)
+
+         //Set the new page as the current page.
+         this.pageService.setPage(this.pp);
+         console.log(this.pageService.getCurrentPage())
+
+         //Sets the current user.
+         this.userService.setCurrentUser(this.cUser);
+        console.log(this.userService.getCurrentUser())
+         //Navigate to page.
+         this.router.navigate(['page']);
+         
+       
+     }
+
+
+   )
   }
 }
