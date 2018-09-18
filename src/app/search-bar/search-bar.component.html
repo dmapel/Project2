@@ -10,10 +10,16 @@
 <img src= "{{img}}" id = "size">
 
 
-<!-- <input type="text" placeholder="search topic..." style="width: 43%; margin-left: 29%;"> -->
+<input type="text" [(ngModel)]="t" placeholder="search topic..." style="width: 43%; margin-left: 29%;" (keydown)="search($event)">
+
+<li *ngFor="let page of Page">
+<div >
+  <h4>{{p.title}}</h4>
+</div>
+</li>
  
 
-<h3> Topics </h3>
+<!-- <h3> Topics </h3>
 <div id="list">
 
         <li>
@@ -81,7 +87,7 @@
        </li>
       
       
-</div> -->
+</div> --> -->
 
 <!-- <div> -->
 <!-- <ul *ngFor = "let p of page">

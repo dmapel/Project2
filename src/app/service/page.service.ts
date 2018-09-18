@@ -17,7 +17,7 @@ getAllTags() {
 }
 
 filter(tagId : number) {
-  return this.http.get<Page[]>(environment.apiUrl + `/filter/tags/${tagId}`)
+  return this.http.get(environment.apiUrl + `filter/tags/${tagId}`)
 }
 
 }

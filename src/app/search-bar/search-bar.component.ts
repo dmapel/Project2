@@ -4,6 +4,8 @@ import { UserService } from './../service/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Tag } from '../models/tag';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { AdminService } from '../service/admin.service';
 
 
 @Component({
@@ -14,12 +16,14 @@ import { Router } from '@angular/router';
 export class SearchBarComponent implements OnInit {
   img = 'https://files.slack.com/files-pri/TBCU1B4N5-FCVM8QYG7/revature__.png';
  input : string;
-
-tags : Tag[];
+ tags : Tag[];
 page : Page[];
+startAt = new Subject();
+endAt = new Subject();
+t:number;
 
   constructor(private userService: UserService, private pagService : PageService, 
-  private router: Router) {
+  private router: Router, private adminService: AdminService) {
    
    }
 
@@ -35,6 +39,15 @@ page : Page[];
         console.log(info);
       }
     )
+
+
+  }
+
+  search($event) {
+    console.log('hits')
+    this.pagService.filter(this.t).subscribe(
+      data => {console.log(data)}
+    );
   }
 
   getIntroPages() {
