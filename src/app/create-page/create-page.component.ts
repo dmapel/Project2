@@ -70,7 +70,6 @@ export class CreatePageComponent implements OnInit {
     //Calls the method to set the current page's theme.
     this.getSelectedValue()
   }
-
   //Gets the selected theme.
   getSelectedValue() {
     console.log(this.selectedValue);
