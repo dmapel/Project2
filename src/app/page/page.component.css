@@ -16,4 +16,8 @@ blockquote {
     font-family: 'Share Tech', sans-serif;
     text-align: center;
     font-size: 35px;
+    border: 1px solid black;
+    width: 50%;
+    margin: 1% auto;
+    background-color: rgba(255, 68, 0, 0.705)
 }
