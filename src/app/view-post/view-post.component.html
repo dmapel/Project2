@@ -1,9 +1,17 @@
 <app-navbar></app-navbar>
-<ul>
+<h1> Choose a Page</h1>
+<div id="titles">
+    <ul>
 
-  <li>
-    {{title}}
-  </li>
-</ul>
+        <li (click) = "first()">
+          {{title}}
+        </li>
+        
+        <li (click) = "second()">
+          {{title2}}
+        </li>
+      
+      </ul>
+</div>
 
 
