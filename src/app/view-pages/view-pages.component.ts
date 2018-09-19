@@ -7,6 +7,8 @@ import { Page } from '../models/page';
 import { AdminService } from '../service/admin.service';
 import { MatPaginator } from '@angular/material';
 import { NewPage } from '../models/new-page';
+import { User } from '../models/user';
+import { PageService } from '../service/page.service';
 
 
 @Component({
@@ -16,8 +18,14 @@ import { NewPage } from '../models/new-page';
 })
 export class ViewPagesComponent implements OnInit {
   page: NewPage [];
+  user: User;
+  cUser: User;
+  userId;
+  page2: Page [];
+  viewPage: any;
+  pp : NewPage;
 
-  constructor(private userService: UserService, private adminService : AdminService, private router : Router, private pageService : NewPageService) { }
+  constructor(private pService : PageService, private userService: UserService, private adminService : AdminService, private router : Router, private pageService : NewPageService) { }
 
   ngOnInit() {
  
@@ -34,5 +42,35 @@ export class ViewPagesComponent implements OnInit {
     }
   )
   }
+
+   //View pages by pageId
+   viewPages(pageId){
+    this.pService.getPageById(pageId).subscribe(
+      data => {
+        console.log(data);
+        this.pp = {
+          creatorId : this.cUser.uId,
+          title: data[0].title,
+          summary: data[0].summary,
+          body: data[0].body
+        }
+ 
+         console.log("testing" + this.pp)
+ 
+          //Set the new page as the current page.
+          this.pageService.setPage(this.pp);
+          console.log(this.pageService.getCurrentPage())
+ 
+          //Sets the current user.
+
+          //Navigate to page.
+          this.router.navigate(['page']);
+          
+        
+      }
+ 
+ 
+    )
+   }
 
 }

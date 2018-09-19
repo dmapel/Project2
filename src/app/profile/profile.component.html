@@ -41,7 +41,7 @@
         </mat-toolbar-row>
         <mat-toolbar-row *ngIf = "editUser">
           <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="newPassword" maxlength="30">
+            <input matInput [(ngModel)]="newPassword" maxlength="30" type="password">
           </mat-form-field>
         <span style="flex: 1 1 auto"></span>
         <button type="button" (click)="updateUser()">Save</button>

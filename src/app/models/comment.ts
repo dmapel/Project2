@@ -1,8 +1,8 @@
 export class comment { 
-    comment_id: number;
-    u_id: number;
+    commentId: number;
+    uId: number;
     comment_submission: string;
-    page_id: number;
+    pageId: number;
     content: string;
     comment_status_id: number;
 }

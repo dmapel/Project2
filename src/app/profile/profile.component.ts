@@ -37,6 +37,8 @@ export class ProfileComponent implements OnInit {
    if (!this.cUser) {
      this.router.navigate(['']);
    }
+
+   //Displays the pages(square form) that the user created
    this.adminService.getSinglePages(this.cUser.uId).subscribe(
     (data: any) => {
       console.log(data);

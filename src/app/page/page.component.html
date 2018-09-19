@@ -4,15 +4,22 @@
 <div id="title">
     <h1>{{page.title}}</h1>
 </div>
-<div id="summary">
-    <blockquote>{{ page.summary}}</blockquote>
+<div id="summary" class="background">
+    <blockquote>Summary: {{ page.summary}}</blockquote>
 </div>
-<div id="body">
+<div id="body" class="background">
     <blockquote>{{page.body}}</blockquote>
 </div>
 
-<div id="comments">
-    <p>{{page.comments}}</p>
+<div *ngIf="!writeComment">
+<mat-form-field>
+    <textarea matInput placeholder="Comments" [(ngModel)]="Comment"></textarea>
+  </mat-form-field>
+  <button type="button" (click)="addComment()">Save</button>
+</div> 
+
+<div id="comments" *ngIf="writeComment">
+    <p>{{comment.content}}</p>
 </div>
 <div id="edit">
         <!--Button to open modal. -->

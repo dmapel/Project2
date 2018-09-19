@@ -38,6 +38,10 @@ export class NewPageService {
   createNewPage(creatorId : number, title: string, summary: string, body: string) {
     return this.http.post<Page>(environment.apiUrl + '/create/page' ,{creatorId, title, summary, body});
   }
+  
+  createComment(commentId: number, content: string) {
+    return this.http.post<Comment>(environment.apiUrl + 'create/comment' ,{commentId, content});
+  }
 
   //Method to update a page.
   updatePage(creatorId : number, title: string, summary: string, body: string) {
