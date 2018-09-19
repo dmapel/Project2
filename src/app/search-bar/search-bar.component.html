@@ -1,0 +1,29 @@
+ <mat-toolbar style="background-color: rgba(0,0,0,0)">
+  <span>
+    <button routerLink="/profile" mat-raised-button color="warn">Your Profile</button>
+  </span>
+  <span style="flex: 1 1 auto"></span>
+  <span>
+   <button routerLink="/create-page" mat-raised-button color="warn" id="cp">Create Page</button>
+  </span>
+</mat-toolbar>
+<img src= "{{img}}" id = "size">
+
+
+ 
+
+<h3> Topics </h3>
+<div id="list">
+       <div *ngFor = "let t of tags" (click)="getPages(t.tagId)">
+         <li>{{ t.tagName}}</li>
+       </div>
+      
+</div> 
+
+
+
+
+
+
+
+

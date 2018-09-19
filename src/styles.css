@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* body{ */
+/* background-color: rgb(241, 235, 227); */
+/* background-image: url('/src/assets/pics/');
+background-size: 100% 120%;
+background: no-repeat; */
+/* } */
+
+html {
+    /* width: 100%; */
+    /* margin: 0%; */
+    background: url('/assets/pics/tosined.png')
+    no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
+
+body {
+    background-color: transparent;
+}
+
+

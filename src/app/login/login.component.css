@@ -1,0 +1,34 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto; 
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  #size {
+    width: 100%;
+    /* height:30%;
+    margin-left: 480px;
+    margin-top: 125px;   */
+  }
+
+
+label {
+  margin: auto 160px;
+}
+
+button {
+  margin: auto 210px;
+}
+
+h5 {
+  margin: auto 50px;
+  color: orangered;
+  background-image: image('/src/assets/pics/tosined.png');
+}

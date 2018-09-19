@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div>
+  <mat-toolbar style="height:400px">
+    <span>
+      <mat-toolbar>
+        <mat-toolbar-row style="height: 100%">
+          <img src="{{img}}" id="size">
+        </mat-toolbar-row>
+        <mat-toolbar-row style="height: 100%">
+          <span style="flex: 1 1 auto"></span>
+          <span style="flex: 1 1 auto"></span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </span>
+    <span>
+      <mat-toolbar style="margin-top: 40px">
+        <mat-toolbar-row>
+          <h2>{{cUser.fName}} {{cUser.lName}}</h2>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+          <h3>Username:</h3>
+        </mat-toolbar-row>
+        <mat-toolbar-row *ngIf = "!editUser">
+          <h4>{{cUser.username}}</h4>
+        </mat-toolbar-row>
+        <mat-toolbar-row *ngIf = "editUser">
+          <mat-form-field class="example-full-width">
+            <input matInput [(ngModel)]="newUsername" maxlength="30" type="username">
+          </mat-form-field>
+        <span style="flex: 1 1 auto"></span>
+      </mat-toolbar-row>
+        <mat-toolbar-row>
+          <h3>Password:</h3>
+        </mat-toolbar-row>
+        <mat-toolbar-row *ngIf = "!editUser">
+          <h4>************</h4>
+          <span style="flex: 1 1 auto"></span>
+          <i class="material-icons" mat-raised-button matTooltip="Change Password and Username" aria-label="Button that displays a tooltip when focused or hovered over" (click)="open()">
+            border_color
+            </i>
+        </mat-toolbar-row>
+        <mat-toolbar-row *ngIf = "editUser">
+          <mat-form-field class="example-full-width">
+            <input matInput [(ngModel)]="newPassword" maxlength="30" type="password">
+          </mat-form-field>
+        <span style="flex: 1 1 auto"></span>
+        <button type="button" (click)="updateUser()">Save</button>
+        <mat-icon style="width:100px; margin-left: 20px; margin-top: 10px; cursor: pointer;" (click) = "cancel()">cancel</mat-icon>
+      </mat-toolbar-row>
+      </mat-toolbar>
+    </span>
+  </mat-toolbar>
+</div>
+<div style="background-color: orangered; height: 500px;" class="section">
+  <h2 style="background-color: #343a40; color: #f5f5f5;">Pages Created</h2>
+  <!-- <span><canvas id ="myCanvas"></canvas></span> -->
+  <div (click)="viewPages(p.pageId)" class="squares" *ngFor = "let p of page"><h4>{{p.title}}</h4></div>
+</div>
