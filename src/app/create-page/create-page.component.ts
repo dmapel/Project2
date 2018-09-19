@@ -55,7 +55,7 @@ export class CreatePageComponent implements OnInit {
       body: this.body
     }
     //Insert new page in database.
-    this.pageService.updatePage(this.page.creatorId, this.page.title, this.page.summary, this.page.body).subscribe(
+    this.pageService.createNewPage(this.page.creatorId, this.page.title, this.page.summary, this.page.body).subscribe(
       data => {
         console.log(data);
       }
@@ -66,16 +66,7 @@ export class CreatePageComponent implements OnInit {
 
     //Test to get the current page.
     console.log(this.pageService.getCurrentPage());
-    
-    //Calls the method to set the current page's theme.
-    this.getSelectedValue()
-  }
 
-  //Gets the selected theme.
-  getSelectedValue() {
-    console.log(this.selectedValue);
-    this.pageService.setTheme(this.selectedValue);
-    console.log(this.pageService.getTheme());
     this.router.navigate(['page']);
   }
 
