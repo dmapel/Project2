@@ -11,6 +11,7 @@ export class ViewPostComponent implements OnInit {
   pages: Page[];
   title: string;
   title2 : string;
+  titiles : any[];
 
 
   constructor(private pageService: PageService) { }
@@ -26,6 +27,8 @@ export class ViewPostComponent implements OnInit {
      //Getting the pages titles.
      this.title2 = this.pages[0][0].title;
     this.title= this.pages[1][0].title;
+
+    
   }
 
 }

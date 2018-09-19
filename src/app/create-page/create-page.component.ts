@@ -24,14 +24,14 @@ export class CreatePageComponent implements OnInit {
   body: string;
   summary: string;
   pageId: number;
-  page: NewPage;
+  page: Page;
   selectedFile: File;
   constructor(private http: HttpClient, private router: Router,
     private pageService: NewPageService, private userService: UserService
   ) { }
   ngOnInit() {
   }
-//Get the image upload.
+  //Get the image upload.
   onFileChanged(event) {
     this.selectedFile = event.target.files[0];
   }
@@ -43,41 +43,42 @@ export class CreatePageComponent implements OnInit {
     //Gets the current user so we can user their uId.
     let current = this.userService.getCurrentUser();
     console.log(current);
-     //If there is no current user, it will take it back to the login page.
-   if (!current) {
-    this.router.navigate(['']);
-  }
+    //If there is no current user, it will take it back to the login page.
+    if (!current) {
+      this.router.navigate(['']);
+    }
     //Create a new page from user input.
     this.page = {
+      pageId: Math.floor(Math.random() * 20),
       creatorId: current.uId,
       title: this.title,
       summary: this.summary,
-      body: this.body
+      body: this.body,
+      comments: [],
+      pageStatusId: 1,
+      timeSubmission: '',
+      tags: []
     }
     //Insert new page in database.
-    this.pageService.updatePage(this.page.creatorId, this.page.title, this.page.summary, this.page.body).subscribe(
+    this.pageService.createNewPage(this.pageId, this.page.creatorId, this.page.title, this.page.summary, this.page.body).subscribe(
       data => {
         console.log(data);
+        this.page = data;
+        console.log(this.page.pageId)
+
+        //Set the new page as the current page.
+        this.pageService.setPage(this.page);
       }
     )
 
-    //Set the new page as the current page.
-    this.pageService.setPage(this.page);
 
     //Test to get the current page.
     console.log(this.pageService.getCurrentPage());
-    
-    //Calls the method to set the current page's theme.
-    this.getSelectedValue()
-  }
 
-  //Gets the selected theme.
-  getSelectedValue() {
-    console.log(this.selectedValue);
-    this.pageService.setTheme(this.selectedValue);
-    console.log(this.pageService.getTheme());
     this.router.navigate(['page']);
   }
+
+
 
 
 }

@@ -12,7 +12,7 @@ export class NewPageService {
   //The page's elements.
   static theme: string;
   // Page.
-  static page: NewPage;
+  static page: Page;
   private createPage: CreatePageComponent;
 
   constructor(private http: HttpClient) { }
@@ -26,7 +26,7 @@ export class NewPageService {
     return NewPageService.theme;
   }
   // Method to store a page.
-  setPage(page: NewPage) {
+  setPage(page: Page) {
     NewPageService.page = page;
   }
   //Method to get current page.
@@ -35,13 +35,13 @@ export class NewPageService {
   }
 
   //Method to create new page.
-  createNewPage(creatorId : number, title: string, summary: string, body: string) {
-    return this.http.post<Page>(environment.apiUrl + '/create/page' ,{creatorId, title, summary, body});
+  createNewPage(pageId: number, creatorId : number, title: string, summary: string, body: string) {
+    return this.http.post<Page>(environment.apiUrl + '/create/page' ,{pageId, creatorId, title, summary, body});
   }
 
   //Method to update a page.
-  updatePage(creatorId : number, title: string, summary: string, body: string) {
-    return this.http.put<NewPage>(environment.apiUrl + '/edit/page' ,{creatorId, title, summary, body});
+  updatePage( pageId : number, title: string, summary: string, body: string) {
+    return this.http.put<Page>(environment.apiUrl + '/edit/page' ,{ title, summary, body, pageId});
   }
 
   //Get all pages for a certain user.

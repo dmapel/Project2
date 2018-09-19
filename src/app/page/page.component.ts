@@ -20,39 +20,40 @@ export class PageComponent implements OnInit {
   newSummary: string;
   newBody: string;
   pageId: number;
-  currentPage: NewPage;
+  currentPage: Page;
   constructor(private pageService: NewPageService, private userService: UserService, private adminService: AdminService,
   private router: Router
   ) { }
 
   ngOnInit() {
-   
     //Get the current page and user.
+    console.log("Current User")
     console.log(this.userService.getCurrentUser());
     console.log(this.pageService.getCurrentPage());
     console.log(this.userService.getPassword());
-    // this.pageId = +this.route.snapshot.paramMap.get('id');
-    // this.adminService.getPage(this.pageId).subscribe((r)=>{r = this.currentPage = r});
   }
    page = this.pageService.getCurrentPage();
    cUser = this.userService.getCurrentUser();
 
-  
 
   //Allows user to update the page.
   updatePage() {
-    this.pageService.updatePage(this.cUser.uId, this.newTitle, this.newSummary, this.newBody).subscribe(
+    console.log('Trying update.')
+    console.log(this.page);
+    console.log(this.page.pageId)
+    this.pageService.updatePage( this.currentPage.pageId, this.newTitle, this.newSummary, this.newBody).subscribe(
       data => {
         console.log(data);
-        this.currentPage = data;
 
+        console.log("Setting new page")
         if (data) {
           this.pageService.setPage(this.currentPage);
+          console.log(this.currentPage)
          
           this.router.navigate(['page']);
           
-          // alert("Your page was successfully updated.")
-          // console.log(this.currentPage);
+          alert("Your page was successfully updated.")
+          console.log(this.currentPage);
          
           
         }

@@ -46,13 +46,14 @@ input {
     font-size: 15px;
     
   }
-  h3 {
+  h1 {
+    color: black;
+    margin-left: 510px;
+    margin-top: 80px;
+    margin-bottom: 80px;
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 10px;
-
-  }
+}
   button {
-    margin: 10px;
+    margin: 0;
 
   }
