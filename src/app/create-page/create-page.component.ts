@@ -55,7 +55,7 @@ export class CreatePageComponent implements OnInit {
       body: this.body
     }
     //Insert new page in database.
-    this.pageService.createNewPage(this.page.creatorId, this.page.title, this.page.summary, this.page.body).subscribe(
+    this.pageService.updatePage(this.page.creatorId, this.page.title, this.page.summary, this.page.body).subscribe(
       data => {
         console.log(data);
       }
