@@ -9,7 +9,7 @@ import { CreatePageComponent } from '../create-page/create-page.component';
   providedIn: 'root'
 })
 export class NewPageService {
-  //The page's elements.
+  // The page's elements.
   static theme: string;
   // Page.
   static page: NewPage;
@@ -17,11 +17,11 @@ export class NewPageService {
 
   constructor(private http: HttpClient) { }
 
-  //Set the current theme.
+  // Set the current theme.
   setTheme(t: string) {
     NewPageService.theme = t;
   }
-  //Method to store a page's theme.
+  // Method to store a page's theme.
   getTheme() {
     return NewPageService.theme;
   }
@@ -29,23 +29,23 @@ export class NewPageService {
   setPage(page: NewPage) {
     NewPageService.page = page;
   }
-  //Method to get current page.
+  // Method to get current page.
   getCurrentPage() {
     return NewPageService.page;
   }
 
-  //Method to create new page.
-  createNewPage(creatorId : number, title: string, summary: string, body: string) {
-    return this.http.post<Page>(environment.apiUrl + '/create/page' ,{creatorId, title, summary, body});
+  // Method to create new page.
+  createNewPage(creatorId: number, title: string, summary: string, body: string) {
+    return this.http.post<Page>(environment.apiUrl + '/create/page', {creatorId, title, summary, body});
   }
 
-  //Method to update a page.
-  updatePage(creatorId : number, title: string, summary: string, body: string) {
-    return this.http.put<NewPage>(environment.apiUrl + '/edit/page' ,{creatorId, title, summary, body});
+  // Method to update a page.
+  updatePage(creatorId: number, title: string, summary: string, body: string) {
+    return this.http.put<NewPage>(environment.apiUrl + '/edit/page', {creatorId, title, summary, body});
   }
 
-  //Get all pages for a certain user.
-  getUserPages(pageId : number) {
+  // Get all pages for a certain user.
+  getUserPages(pageId: number) {
     return this.http.get<Page[]>(environment.apiUrl + `/page/${pageId}`);
   }
 

@@ -1,11 +1,11 @@
-export class Page {
+export interface Page {
     pageId: number;
-    comments: {};
+    comments?: {};
     creatorId: number;
-    title: string;
-    summary: string;
-    body: string;
-    pageStatusId: number;
+    title?: string;
+    summary?: string;
+    body?: string;
+    pageStatusId?: number;
     timeSubmission: string;
-    tags: {};
+    tags?: {};
 }
