@@ -11,6 +11,11 @@
     <blockquote>{{page.body}}</blockquote>
 </div>
 
-<div id="comments">
-    <p>{{page.comments}}</p>
+<div id="comments" *ngFor='let c of comments'>
+    <p>{{c.content}}</p>
 </div>
+<div>
+    <input #comment type="text" name="inputs" id="comment">
+    <input type="submit" value="Submit comment" (click)='submitComment(comment.value)'>
+</div>
+

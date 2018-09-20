@@ -44,7 +44,7 @@ export class ProfileComponent implements OnInit {
 
       for(let i = 0; i < this.page.length; i++){
         console.log(this.page[i]);
-        if(this.page[i].creatorId == this.cUser.uId && this.page[i].pageStatusId == 1) {
+        if(this.page[i].creatorId == this.cUser.uId && this.page[i].pageStatus == 1) {
           this.page.push(this.page[i]);
         }
       }
