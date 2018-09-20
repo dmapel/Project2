@@ -6,6 +6,8 @@ import { UserService } from '../service/user.service';
 import { Page } from '../models/page';
 import { AdminService } from '../service/admin.service';
 import { MatPaginator } from '@angular/material';
+import { NewPage } from '../models/new-page';
+import { PageService } from '../service/page.service';
 
 
 @Component({
@@ -14,9 +16,10 @@ import { MatPaginator } from '@angular/material';
   styleUrls: ['./all-pages.component.css']
 })
 export class AllPagesComponent implements OnInit {
-  page: Page [];
+  page: NewPage [];
+  sendoffPage : NewPage;
 
-  constructor(private userService: UserService, private adminService : AdminService, private router : Router, private pageService : NewPageService) { }
+  constructor(private userService: UserService, private adminService : AdminService, private router : Router, private pageService : NewPageService, private ppService : PageService) { }
 
   ngOnInit() {
  
@@ -32,6 +35,27 @@ export class AllPagesComponent implements OnInit {
       }
     }
   )
+  }
+
+  get(id) {
+    console.log(id);
+    this.ppService.getPageById(id).subscribe(
+      data => {
+        console.log(data);
+        if (data) {
+          this.sendoffPage = {
+            creatorId: data[0].creatorId,
+            title: data[0].title,
+            summary: data[0].summary,
+            body:data[0].body
+          }
+          console.log(this.sendoffPage);
+          this.pageService.setPage(this.sendoffPage);
+          this.router.navigate(['page']);
+        }
+      }
+    )
+
   }
 
 }
