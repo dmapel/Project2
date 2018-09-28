@@ -31,6 +31,12 @@ getPageById(pageId) {
 
 }
 
+//919
+addComment(comment) {
+  console.log('adding comment');
+  return this.http.post<Comment>(environment.apiUrl + '/create/comment', comment);
+}
+
 //Sets filtered pages retrieved with the previous methkod (filter()).
 setFilteredPages(pages) {
 PageService.filteredPages = pages;
@@ -38,6 +44,10 @@ PageService.filteredPages = pages;
 //Returns filtered pages retrieved with the previous methkod (filter()).
 getFilteredPages() {
 return PageService.filteredPages;
+}
+//919
+getPageByTitle(pageTitle: string) {
+  return this.http.get<Page>(environment.apiUrl + `page/find/${pageTitle}`)
 }
 
 

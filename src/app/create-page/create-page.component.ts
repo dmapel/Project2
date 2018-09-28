@@ -67,7 +67,7 @@ export class CreatePageComponent implements OnInit {
     //Test to get the current page.
     console.log(this.pageService.getCurrentPage());
 
-    this.router.navigate(['page']);
+    this.router.navigate(['search-bar']);
   }
 
 

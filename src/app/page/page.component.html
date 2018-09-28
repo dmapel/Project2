@@ -11,6 +11,11 @@
     <blockquote>{{page.body}}</blockquote>
 </div>
 
+<h4>Comments:</h4>
+<div id="comments" *ngFor='let c of comments'>
+    <p>{{c.content}}</p>
+</div>
 <div id="comments">
-    <p>{{page.comments}}</p>
+    <input #comment type="textarea" name="inputs" id="comment" placeholder="Add a comment">
+    <button mat-raised-button color="warn" (click)='submitComment(comment.value)'>Submit</button>
 </div>

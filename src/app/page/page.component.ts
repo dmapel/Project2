@@ -1,3 +1,4 @@
+import {PageService} from './../service/page.service';
 import { NewPage } from './../models/new-page';
 import { UserService } from './../service/user.service';
 import { NewPageService } from './../service/new-page.service';
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { Page } from './../models/page';
 import { AdminService } from '../service/admin.service';
 import {ActivatedRoute} from '@angular/router';
+import {User} from '../models/user';
 
 
 
@@ -21,12 +23,18 @@ export class PageComponent implements OnInit {
   newBody: string;
   pageId: number;
   currentPage: NewPage;
+  page: Page;
+  comments: Comment[];
+  cUser : User = this.userService.getCurrentUser();
   constructor(private pageService: NewPageService, private userService: UserService, private adminService: AdminService,
-  private router: Router
+  private router: Router, private pService : PageService
   ) { }
 
   ngOnInit() {
-   
+   console.log("get current page");
+   console.log(this.pageService.getCurrentPage());
+   this.getPageByTitle(this.pageService.getCurrentPage().title);
+
     //Get the current page and user.
     console.log(this.userService.getCurrentUser());
     console.log(this.pageService.getCurrentPage());
@@ -34,9 +42,24 @@ export class PageComponent implements OnInit {
     // this.pageId = +this.route.snapshot.paramMap.get('id');
     // this.adminService.getPage(this.pageId).subscribe((r)=>{r = this.currentPage = r});
   }
-   page = this.pageService.getCurrentPage();
-   cUser = this.userService.getCurrentUser();
+  //  page = this.pageService.getCurrentPage();
+  //  cUser = this.userService.getCurrentUser();
 
+  getPageByTitle(title) {
+    this.pService.getPageByTitle(title).subscribe(p => {
+      this.page= p;
+      this.comments = this.page.pageComments;
+    });
+  }
+
+  submitComment(comment: string) {
+    const com = {
+      uId: this.cUser.uId,
+      pageId: this.page.pageId,
+      content: comment
+    }
+    this.pService.addComment(com).subscribe(c => this.page.pageComments.push(c));
+  }
   
 
   //Allows user to update the page.

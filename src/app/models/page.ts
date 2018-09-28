@@ -1,11 +1,11 @@
 export class Page {
     pageId: number;
-    comments: {};
+    pageComments: Comment[];
     creatorId: number;
     title: string;
     summary: string;
     body: string;
-    pageStatusId: number;
-    timeSubmission: string;
+    pageStatus: number;
+    time: string;
     tags: {};
 }
